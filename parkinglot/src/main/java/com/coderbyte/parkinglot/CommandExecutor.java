@@ -32,8 +32,16 @@ public class CommandExecutor {
 
 	
 	public void execute(String[] args) {
-		Command cmd = (Command)commands.get(args[0]);
-		cmd.execute(args,parkinglot);
+			try {
+				Command cmd = (Command)commands.get(args[0]);
+				if(cmd != null) 
+					cmd.execute(args,parkinglot);
+				else
+					System.out.println("Please enter a valid Command");
+
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 	}
 
 }

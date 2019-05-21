@@ -91,7 +91,7 @@ public class ParkingLot {
 					result.add(v.getRegistration());
 				}
 	         }
-		String[] resultarr = (String[])result.toArray();
+		String[] resultarr = (String[])result.toArray(new String[] {});
 		
 		if(resultarr.length > 0 )
 			System.out.println(String.join(", ", resultarr));

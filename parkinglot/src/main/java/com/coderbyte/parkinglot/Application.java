@@ -10,7 +10,7 @@ import java.util.Properties;
 public class Application {
 
 	static BufferedReader reader; 
-	static CommandExecutor command;
+	static CommandExecutor commandExecutor;
 	
 	public static void main(String[] args) {
 		
@@ -22,13 +22,16 @@ public class Application {
 			if(inputStream != null) {
 				props.load(inputStream);
 			}
-			CommandExecutor cmd = new CommandExecutor(props);
+			commandExecutor= new CommandExecutor(props);
 			
 			//wait for commands or pick commands from a file... 
-			System.out.println("Arguments passed - " + args[0]);
 			if(args.length == 0 ) {
 				reader = new BufferedReader(new InputStreamReader(System.in));
 			}else { 
+				System.out.println("Arguments passed - ");
+				for(int i=0; i < args.length; i++) {
+					System.out.println(args[i]);
+				}
 				reader = new BufferedReader(new FileReader(args[0]));
 			}
 			
@@ -44,9 +47,10 @@ public class Application {
 		
 	}//main
 	
-	public static void process(String command) {
-			System.out.println(command);
-			
+	public static void process(String cmd) {
+			System.out.println(cmd);
+			String[] args = cmd.split("\\s+");
+			commandExecutor.execute(args);
 	}
 	
 }
