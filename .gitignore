@@ -1,0 +1,5 @@
+# Ignored files
+*.class
+*.jar
+*.lst
+*/target/
