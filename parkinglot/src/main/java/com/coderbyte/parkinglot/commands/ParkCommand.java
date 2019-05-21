@@ -7,6 +7,10 @@ public class ParkCommand implements Command{
 
 	public void execute(String[] params, ParkingLot parkinglot) {
 		// TODO Auto-generated method stub
+		
+		if(!parkinglot.isReady())
+			return;
+
 		Vehicle v = new Vehicle(params[1],params[2]);
 		parkinglot.Park(v);
 	}

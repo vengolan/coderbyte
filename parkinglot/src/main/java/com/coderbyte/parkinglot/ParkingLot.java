@@ -15,6 +15,14 @@ public class ParkingLot {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public boolean isReady() {
+		if(slots == null) {
+			System.out.println("Please Initialize parking lot by running the \"create_parking_lot <slots>\" command");
+			return false;
+		}
+		return true;
+	}
+	
 	public void init(int noOfSlots) {
 		emptySlots = new ArrayList<Integer>();
 		occupiedSlots = new ArrayList<Integer>();;
