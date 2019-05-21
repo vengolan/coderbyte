@@ -18,7 +18,7 @@ public class Application {
 			
 			//Initialize CommandExecutor
 			Properties props = new Properties();
-			InputStream inputStream = ClassLoader.class.getResourceAsStream("command.properties");
+			InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("commands.properties");
 			if(inputStream != null) {
 				props.load(inputStream);
 			}

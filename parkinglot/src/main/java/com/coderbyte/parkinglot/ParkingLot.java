@@ -66,49 +66,63 @@ public class ParkingLot {
 	
 	public void getSlotsByColor(String color) {
 		
-		ArrayList<Integer> result = new ArrayList<Integer>();
-		for(Map.Entry m:slots.entrySet()){    
-				Vehicle v = ((Slot)m.getValue()).getVehicle();
-				if(v.getColour() == color) {
-					result.add((Integer)m.getKey());
+		ArrayList<String> result = new ArrayList<String>();
+		for(Integer key: occupiedSlots){
+				Slot s = (Slot)slots.get(key);
+				Vehicle v = s.getVehicle();
+				if(v.getColour().equalsIgnoreCase(color)) {
+					result.add(key.toString());
 				}
 	         }
-		String[] resultarr = (String[])result.toArray();
+		String[] resultarr = (String[])result.toArray(new String[] {});
 		
 		if(resultarr.length > 0 )
-			System.out.println(String.join(",", resultarr));
+			System.out.println(String.join(", ", resultarr));
 		
 	}
 	
 	public void getRegnosByColor(String color) {
 
 		ArrayList<String> result = new ArrayList<String>();
-		for(Map.Entry m:slots.entrySet()){    
-				Vehicle v = ((Slot)m.getValue()).getVehicle();
-				if(v.getColour() == color) {
+		for(Integer key: occupiedSlots){
+				Slot s = (Slot)slots.get(key);
+				Vehicle v = s.getVehicle();
+				if(v.getColour().equalsIgnoreCase(color)) {
 					result.add(v.getRegistration());
 				}
 	         }
 		String[] resultarr = (String[])result.toArray();
 		
 		if(resultarr.length > 0 )
-			System.out.println(String.join(",", resultarr));
-
-		
+			System.out.println(String.join(", ", resultarr));
 	}
 	
 
 	public void getSlotByRegno(String regno) {
 		String slotno="";
-		for(Map.Entry m:slots.entrySet()){    
-			Vehicle v = ((Slot)m.getValue()).getVehicle();
-			if(v.getRegistration() == regno) {
-				slotno = ((Integer)m.getKey()).toString();
+		for(Integer key:occupiedSlots){
+			Slot s = (Slot)slots.get(key);
+			Vehicle v = s.getVehicle();
+			if(v.getRegistration().equalsIgnoreCase(regno)) {
+				slotno = key.toString();
 			}
 		}
-		if(slotno !="")
+		if(!slotno.trim().equalsIgnoreCase(""))
 			System.out.println("Allocated slot number:" + slotno);
+		else
+			System.out.println("Not Found");
+	}	
+	
+	public void getStatus() {
+		
+		ArrayList<String> result = new ArrayList<String>();
+		result.add("Slot No\tRegistration No\tColour");
+		for(Integer key:occupiedSlots){
+			Slot s = (Slot)slots.get(key);
+			Vehicle v = s.getVehicle();
+			result.add(key.toString()+"\t" + v.getRegistration() + "\t" + v.getColour() );
+		}
+		for(String output: result)
+			System.out.println(output);		
 	}
-	
-	
 }
