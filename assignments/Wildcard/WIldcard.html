@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://www.coderbyte.com/results/user11349960:Wildcard%20Characters:Java -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title> Coderbyte | Programming challenges and courses </title>  
+ 
+<meta name="description" content="Coderbyte is a web application that helps you practice your programming skills, prepare for coding bootcamps, and prepare for job interviews with our collection of interview questions, videos, and solutions.">
+<meta name="og:description" content="Coderbyte is a web application that helps you practice your programming skills, prepare for coding bootcamps, and prepare for job interviews with our collection of interview questions, videos, and solutions.">
+<meta name="Keywords" content="coderbyte, coder byte, coding, coding, bootcamp, code school, programming challenges, practice coding, algorithm, math, puzzles, test you programming skills, codetbytes"> 
+
+<link rel="shortcut icon" href="https://s3.amazonaws.com/coderbytestaticimages/favicon.ico"> 
+<link type="text/css" rel="stylesheet" href="./WIldcard_files/style.css"> 
+<script type="text/javascript" async="" src="./WIldcard_files/insight.min.js"></script><script type="text/javascript" async="" src="./WIldcard_files/ga.js"></script><script src="./WIldcard_files/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./WIldcard_files/jquery.cursorMessage.js" charset="utf-8" language="javascript" type="text/javascript"></script> 
+<script src="./WIldcard_files/helper.js"></script>
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25530908-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script><script>
+_linkedin_partner_id = "1040524";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script>
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";
+b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=1040524&fmt=gif" />
+</noscript><link href="./WIldcard_files/css" rel="stylesheet">
+<script> 
+$(document).ready(function() {
+
+  var dropped = false;
+
+  // challenges dropdown hover action
+  $(".navChalHover").hover(function() {
+    $('.navDropDown').show();
+    $('.navChalHover').addClass('hovered');
+    $('.courseDropDown').mouseleave();
+    dropped = true;
+  });
+  $('.navDropDown').mouseleave(function() {
+    $('.navDropDown').hide();
+    $('.navChalHover').removeClass('hovered');
+    dropped = false;
+  });
+
+  // course dropdown hover action
+  $(".navCourseHover").hover(function() {
+    $('.navDropDown').mouseleave();
+    dropped = true;
+  });
+  // course dropdown hover action
+  $(".navMockHover").hover(function() {
+    $('.navDropDown').mouseleave();
+    dropped = true;
+  });
+  $('.courseDropDown').mouseleave(function() {
+    dropped = false;
+  });
+  $(".profHover").hover(function() {
+    $('.navDropDown').mouseleave();
+    dropped = true;
+  });
+
+  // hide dropdowns if hovering somewhere else on page
+  $('div').not('#header, #header_left, #header_right, .dropIcon').hover(function() {
+    if (dropped) {
+      $('.courseDropDown').mouseleave();
+      $('.navDropDown').mouseleave();
+      dropped = false;
+    }
+  });
+
+  
+});
+</script>
+ 
+<!-- editor -->
+<script src="./WIldcard_files/ace.js" charset="utf-8"></script><style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style>
+<script src="./WIldcard_files/ext-language_tools.js" charset="utf-8"></script><style>.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}</style><style>.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);}.ace_editor.ace_autocomplete .ace_line-hover {    position: absolute;    z-index: 2;}.ace_editor.ace_autocomplete .ace_scroller {   background: none;   border: none;   box-shadow: none;}.ace_rightAlignedText {    color: gray;    display: inline-block;    position: absolute;    right: 4px;    text-align: right;    z-index: -1;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #000;    text-shadow: 0 0 0.01em;}.ace_editor.ace_autocomplete {    width: 280px;    z-index: 200000;    background: #fbfbfb;    color: #444;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;}</style> 
+<script src="./WIldcard_files/Chart.bundle.min.js"></script>
+
+<!-- editor overrides -->
+<style type="text/css">
+.ace_editor {
+    width: 94%;
+    height: 460px;
+    border: 2px solid #c4c4c4;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+.ace_scroller, 
+.ace_gutter { 
+    padding-top: 0px;
+}
+.show_code_area {
+    margin-top: 17px;
+}
+.placeholderPreview {
+    font-family: "Helvetica";
+    text-align: center;
+    padding-top: 260px;
+}
+.sql_output {
+    background: #f1f1f1;
+    padding: 40px 0;
+    text-align: center;
+    border: 2px solid #dadada;
+    border-radius: 3px;
+    margin-top: 20px;
+    width: 94%;
+    margin-left: 22px;
+}
+.sql_output p.error {
+    color: #de5454;
+}
+.sql_output table {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #dadada;
+    font-family: "Courier New";
+    font-size: 14px;
+    color: #212121;
+}
+.sql_output table tr {
+    background: #fdfdfd;
+}
+.sql_output table tr:nth-child(2n) {
+    background: whitesmoke;
+}
+.sql_output table th, 
+.sql_output table td {
+    padding: 8px 0;
+}
+.sql_output .placeholderPreview {
+    font-family: "Helvetica";
+    text-align: center;
+    color: #5a5a5a;
+    padding-top: 0;
+}
+
+
+</style>  
+<script src="./WIldcard_files/theme-monokai.js"></script><script src="./WIldcard_files/mode-java.js"></script><style id="ace-monokai">.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}
+/*# sourceURL=ace/css/ace-monokai */</style></head>
+
+<body> 
+
+
+<style>
+.badge_outer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000000;
+  display: none;
+}
+.badge_popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: white;
+  border-radius: 6%;
+  border: 10px solid #397ed2;
+  z-index: 1000000;
+  overflow: auto;
+  width: 400px;
+  height: 315px;
+  margin-left: -200px;
+  margin-top: -200px;
+  box-shadow: 0px 0px 12px #3a3a3a;
+  cursor: pointer;
+}
+.badge_popup section {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 29px;
+}
+.badge_popup section h2 {
+  font-size: 37px;
+  color: #2f97d8;
+  font-family: "Franklin Gothic Book";
+  border-bottom: 1px dashed #c5c5c5;
+  padding: 0 23px;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+.badge_popup img {
+  width: 80px;
+  height: 80px;
+  background: gray;
+  margin-top: 23px;
+}
+.badge_popup p {
+  font-family: 'Franklin Gothic Book';
+  font-size: 16px;
+  color: #ecaa53;
+  font-style: italic;
+}
+</style>
+
+<script>
+$(document).ready(function() { 
+
+  var badge_images = {
+    '1': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/First%20Challenge.png', 'Complete your first Coderbyte challenge.'],
+    '2': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Five%20Challenges.png', 'Complete five Coderbyte challenges.'],
+    '3': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Ten%20Perfect%20Tens.png', 'Complete ten challenges each with a perfect score.'],
+    '4': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Tier%202.png', 'Earn at least 100 points.'],
+    '5': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Challenge%20Speed.png', 'Solve a medium challenge in less than 7 minutes.'],
+    '6': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Challenge%20Speed%20II.png', 'Solve a medium challenge in less than 4 minutes.'],
+    '7': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Twenty%20Challenges.png', 'Complete 20 Coderbyte challenges.'],
+    '8': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Fifty%20Challenges.png', 'Complete 50 Coderbyte challenges.'],
+    '9': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Hard%20Challenge.png', 'Complete a hard Coderbyte challenge.']
+  };
+
+  // what badge to show
+  var hash = window.location.hash.substr(1);
+  var badges;
+  if (hash.indexOf('badge:') !== -1) {
+    badges = hash.split(':')[1];
+    badges = badges.split(',');
+    if (badges.length > 0) {
+      console.log('there are badge popups to show', badges);
+      showPopup();
+    }
+  }
+
+  // clicking popup hides it
+  $('.badge_popup').click(function() {
+    removePopup();
+  });
+
+  function removePopup() {
+    badges.shift();
+    if (badges.length > 0) {
+      showPopup();
+    } else {
+      $('.badge_outer').fadeOut();
+      var urlWithoutHash = document.location.href.replace(location.hash , "" );
+      window.location.replace(urlWithoutHash);
+    }
+  }
+
+  function showPopup() {
+    var val = badges[0];
+    $('.badgeImage').attr('src', badge_images[val][0]);
+    $('.badgeText').text(badge_images[val][1])
+    $('.badge_outer').fadeIn();
+  }
+
+});  
+</script>
+
+<div class="badge_outer">
+  <div class="badge_popup">
+    <section>
+      <h2>You were awarded a new badge!</h2>
+      <p class="badgeText"></p>
+      <img class="badgeImage" src="./WIldcard_files/user11349960_Wildcard Characters_Java">
+    </section>
+  </div>
+</div>
+ 
+
+<div id="container" style="position:relative;">
+
+    <div id="header" style="position:relative;"> 
+
+	<div id="header_left"> <a href="https://www.coderbyte.com/" class="homebutton"> Coderbyte </a> </div>
+	        
+	<div id="header_right"> 
+	    <ul id="nav">
+			<li><a class="navCourseHover" href="https://www.coderbyte.com/challenges">Challenges</a></li>
+			<li><a class="navChalHover" href="https://www.coderbyte.com/courses/?s=courses#all">Learn <span>⌄</span></a></li>
+			<li><a class="profHover" href="https://www.coderbyte.com/profile/">Profile</a></li>
+			<li><a class="navMockHover" href="https://www.coderbyte.com/member">Membership</a></li>
+			<li><a class="profHover orgNavTitle" href="https://www.coderbyte.com/organizations">Organizations</a></li>
+	    </ul>
+	    <ul class="courseDropDown">
+			<a href="https://www.coderbyte.com/courses/?s=courses#all"><li><div class="dropIcon"></div>Courses</li></a>
+			<a href="https://www.coderbyte.com/courses/?s=all#all"><li><div class="dropIcon"></div>Tutorials</li></a>
+		</ul>
+		<ul class="navDropDown">
+			<a href="https://www.coderbyte.com/courses/?s=courses#all"><li><div class="dropIcon"></div>Courses</li></a>
+			<a href="https://www.coderbyte.com/challenges?a=true"><li><div class="dropIcon"></div>Algorithms</li></a>
+			<a href="https://www.coderbyte.com/questions/"><li><div class="dropIcon"></div>Discussion</li></a>
+			<a href="https://www.coderbyte.com/rankings/"><li><div class="dropIcon"></div>Rankings</li></a>
+		</ul>
+	</div>
+
+	<div class="clear"></div>
+	
+</div>    
+    
+    <style>#resultStats { top: 65px; }</style>
+
+    <style>#resultStats { top: 65px; }</style>
+
+    <div style="margin-left:-122px;width:946px;" class="shiftedLeft">
+
+        <div id="results_title"> 
+        <p> 
+        <span>Wildcard Characters</span> Results
+                    <a class="nextChal" href="https://www.coderbyte.com/challenges">
+                View your challenges →
+            </a>
+                    <a class="deleteChal" href="./WIldcard_files/user11349960_Wildcard Characters_Java" style="display:none;">Redo</a>
+            </p><form method="post" enctype="multipart/form-data" class="sure_delete" style="display:none;">
+            Are you sure: <input type="submit" name="yes_delete_chal" value="Yes" id="yes_delete_chal">
+            <a class="no_delete_chal" href="./WIldcard_files/user11349960_Wildcard Characters_Java">No</a> 
+            </form>
+        <p></p> </div>
+        
+                
+        <p class="show_question" style="display: none;"> Show Question </p>
+        
+                <div class="question_challenge" style="display: block;">
+         Have the function <span style="font-family:&#39;Courier New&#39;;color:#a21818;">WildcardCharacters(<span style="font-family:&#39;Courier New&#39;;color:#1f5cc3;"><b>str</b></span>)</span> read <span style="font-family:&#39;Courier New&#39;;color:#1f5cc3;"><b>str</b></span> 
+
+which will contain two strings separated by a space. The first string will consist of the following sets of characters: +, *, and {N} which is optional. The plus (+) character represents a single alphabetic character, the asterisk (*) represents a sequence of the same character of length 3 unless it is followed by {N} which represents how many characters should appear in the sequence where N will be at least 1. Your goal is to determine if the second string exactly matches the pattern of the first string in the input. 
+
+<br><br>
+
+For example: if <span style="font-family:&#39;Courier New&#39;;color:#1f5cc3;"><b>str</b></span> is "++*{5} gheeeee" then the second string in this case does match the pattern, so your program should return the string <b>true</b>. If the second string does not match the pattern your program should return the string <b>false</b>.
+
+<br><br>
+
+<i>Hard</i> challenges are worth <i>15 points</i> and you are not timed for them.
+Use the <b>Parameter Testing</b> feature in the box below to test your code with different arguments.        </div>
+           
+        <!-- ACTUAL RESULTS -->
+         <div id="actual_results">
+                        
+             
+            
+            <div>    
+                                    <div id="nicejob_cases" style="margin-top:9px;"> This user's test case outputs were all correct. </div>  
+                                </div> 
+            
+                                    <div class="show_time_submission" style="margin-top:-8px;"> You completed this challenge in 
+                4 minutes. 
+            </div>
+                        <li> Total points: <span class="totalpoints">15</span> </li>  
+                  
+         </div>
+        
+           
+        
+        <!-- display code -->
+        <div id="outer_box" style="margin-top:10px;">
+            <div id="information_box">
+
+                    <li class="shorter_padding_results_2"> <p> Solution </p> </li>
+                    <div class="show_code_area">
+              
+                    <form><pre class=" ace_editor ace_dark ace-monokai"><textarea class="ace_text-input" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; height: 12px; width: 6.00031px; left: 50px; top: 0px;"></textarea><div class="ace_gutter"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: 0px; height: 484px; width: 46px;"><div class="ace_gutter-cell " style="height: 12px;">1</div><div class="ace_gutter-cell " style="height: 12px;">2</div><div class="ace_gutter-cell " style="height: 12px;">3</div><div class="ace_gutter-cell " style="height: 12px;">4</div><div class="ace_gutter-cell " style="height: 12px;">5<span class="ace_fold-widget ace_start ace_open" style="height: 12px;"></span></div><div class="ace_gutter-cell " style="height: 12px;">6<span class="ace_fold-widget ace_start ace_open" style="height: 12px;"></span></div><div class="ace_gutter-cell " style="height: 12px;">7</div><div class="ace_gutter-cell " style="height: 12px;">8</div><div class="ace_gutter-cell " style="height: 12px;">9<span class="ace_fold-widget ace_start ace_open" style="height: 12px;"></span></div><div class="ace_gutter-cell " style="height: 12px;">10</div><div class="ace_gutter-cell " style="height: 12px;">11</div><div class="ace_gutter-cell " style="height: 12px;">12</div><div class="ace_gutter-cell " style="height: 12px;">13</div><div class="ace_gutter-cell " style="height: 12px;">14</div><div class="ace_gutter-cell " style="height: 12px;">15</div><div class="ace_gutter-cell " style="height: 12px;">16</div><div class="ace_gutter-cell " style="height: 12px;">17</div><div class="ace_gutter-cell " style="height: 12px;">18</div><div class="ace_gutter-cell " style="height: 12px;">19</div><div class="ace_gutter-cell " style="height: 12px;">20</div><div class="ace_gutter-cell " style="height: 12px;">21</div><div class="ace_gutter-cell " style="height: 12px;">22</div><div class="ace_gutter-cell " style="height: 12px;">23</div><div class="ace_gutter-cell " style="height: 12px;">24</div><div class="ace_gutter-cell " style="height: 12px;">25</div><div class="ace_gutter-cell " style="height: 12px;">26</div><div class="ace_gutter-cell " style="height: 12px;">27</div><div class="ace_gutter-cell " style="height: 12px;">28<span class="ace_fold-widget ace_start ace_open" style="height: 12px;"></span></div><div class="ace_gutter-cell " style="height: 12px;">29</div><div class="ace_gutter-cell " style="height: 12px;">30</div><div class="ace_gutter-cell " style="height: 12px;">31</div><div class="ace_gutter-cell " style="height: 12px;">32</div><div class="ace_gutter-cell " style="height: 12px;">33</div><div class="ace_gutter-cell " style="height: 12px;">34</div></div><div class="ace_gutter-active-line" style="top: 0px; height: 12px;"></div></div><div class="ace_scroller" style="left: 46px; right: 0px; bottom: 0px;"><div class="ace_content" style="margin-top: 0px; width: 652px; height: 484px; margin-left: 0px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 484.025px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"><div class="ace_active-line" style="height:12px;top:0px;left:0;right:0;"></div></div><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:12px"><span class="ace_keyword">import</span> <span class="ace_identifier">java</span>.<span class="ace_identifier">util</span>.<span class="ace_keyword ace_operator">*</span>; </div><div class="ace_line" style="height:12px"><span class="ace_keyword">import</span> <span class="ace_identifier">java</span>.<span class="ace_identifier">io</span>.<span class="ace_keyword ace_operator">*</span>;</div><div class="ace_line" style="height:12px"><span class="ace_keyword">import</span> <span class="ace_identifier">java</span>.<span class="ace_identifier">util</span>.<span class="ace_identifier">regex</span>.<span class="ace_keyword ace_operator">*</span>;</div><div class="ace_line" style="height:12px"></div><div class="ace_line" style="height:12px"><span class="ace_keyword">class</span> <span class="ace_identifier">Main</span> {  </div><div class="ace_line" style="height:12px">  <span class="ace_keyword">public</span> <span class="ace_keyword">static</span> <span class="ace_keyword">boolean</span> <span class="ace_identifier">WildcardCharacters</span>(<span class="ace_support ace_function">String</span> <span class="ace_identifier">str</span>) { </div><div class="ace_line" style="height:12px">  </div><div class="ace_line" style="height:12px">    <span class="ace_comment">// code goes here   </span></div><div class="ace_line" style="height:12px">    <span class="ace_comment">/* Note: In Java the return type of a function and the </span></div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span><span class="ace_comment">   parameter types being passed are defined, so this return </span></div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span><span class="ace_comment">   call must match the return type of the function.</span></div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span><span class="ace_comment">   You are free to modify the return type. */</span></div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span>   <span class="ace_support ace_function">String</span>[] <span class="ace_identifier">splitted</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">str</span>.<span class="ace_identifier">split</span>(<span class="ace_string">"\\s+"</span>);</div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span>   <span class="ace_support ace_function">String</span> <span class="ace_identifier">pattern</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">splitted</span>[<span class="ace_constant ace_numeric">0</span>];</div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span>   <span class="ace_support ace_function">String</span> <span class="ace_identifier">inputstr</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">splitted</span>[<span class="ace_constant ace_numeric">1</span>];</div><div class="ace_line" style="height:12px"></div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span>    <span class="ace_support ace_function">String</span> <span class="ace_identifier">regexpattern</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">pattern</span>.<span class="ace_identifier">replaceAll</span>(<span class="ace_string">"(\\+)"</span>,<span class="ace_string">"."</span>);</div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span>    <span class="ace_identifier">regexpattern</span> <span class="ace_keyword ace_operator">=</span>  <span class="ace_identifier">regexpattern</span>.<span class="ace_identifier">replaceAll</span>(<span class="ace_string">"\\*(\\{\\d+\\})"</span>,<span class="ace_string">"\\.$1"</span>);</div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span>    <span class="ace_identifier">regexpattern</span> <span class="ace_keyword ace_operator">=</span>  <span class="ace_identifier">regexpattern</span>.<span class="ace_identifier">replaceAll</span>(<span class="ace_string">"\\*"</span>,<span class="ace_string">".\\{3\\}"</span>);</div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span>    </div><div class="ace_line" style="height:12px"><span class="ace_indent-guide">    </span>    <span class="ace_keyword">return</span> <span class="ace_identifier">inputstr</span>.<span class="ace_identifier">matches</span>(<span class="ace_identifier">regexpattern</span>);</div><div class="ace_line" style="height:12px">    </div><div class="ace_line" style="height:12px">  } </div><div class="ace_line" style="height:12px">  </div><div class="ace_line" style="height:12px">  </div><div class="ace_line" style="height:12px">  </div><div class="ace_line" style="height:12px">  </div><div class="ace_line" style="height:12px">  <span class="ace_keyword">public</span> <span class="ace_keyword">static</span> <span class="ace_keyword">void</span> <span class="ace_identifier">main</span> (<span class="ace_support ace_function">String</span>[] <span class="ace_identifier">args</span>) {  </div><div class="ace_line" style="height:12px">    <span class="ace_comment">// keep this function call here     </span></div><div class="ace_line" style="height:12px">    <span class="ace_identifier">Scanner</span> <span class="ace_identifier">s</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_keyword">new</span> <span class="ace_identifier">Scanner</span>(<span class="ace_support ace_function">System</span>.<span class="ace_identifier">in</span>);</div><div class="ace_line" style="height:12px">    <span class="ace_support ace_function">System</span>.<span class="ace_identifier">out</span>.<span class="ace_identifier">print</span>(<span class="ace_identifier">WildcardCharacters</span>(<span class="ace_identifier">s</span>.<span class="ace_identifier">nextLine</span>())); </div><div class="ace_line" style="height:12px">  }   </div><div class="ace_line" style="height:12px">  </div><div class="ace_line" style="height:12px">}</div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="left: 4px; top: 0px; width: 6.00031px; height: 12px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 20px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 20px; height: 408px;"></div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 20px; left: 46px; right: 0px;"><div class="ace_scrollbar-inner" style="height: 20px; width: 698px;"></div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;"></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></pre></form> 
+        
+                
+        <br>
+
+        
+        
+            <div class="p_testing_background" style="margin-left:35px;"> <span> str = </span> <input type="text" id="parameter_0" value="&quot;Argument goes here&quot;" style="height:17px;" autocomplete="off"> </div>  
+            
+            
+                
+        <!-- RUN BUTTON -->
+                <div class="runcode_button" onclick="" style="margin-top: 0px; display: block;"> <p> Run code </p> </div> 
+        <div class="runcode_button_false" onclick="" style="margin-top: 0px; display: none;"> <p> Please Wait </p> </div> 
+                   
+        <!-- OUTPUT TEXT -->         
+        
+            <input type="text" id="output_answer" name="output" value="Code output will appear here." style="margin-left: 46px;height:32px;width:274px;" class=""> 
+         
+        <br><br> 
+        
+        </div>
+                    
+        </div> 
+        </div> <!-- outer box --> 
+        
+        <!-- someone else's code -->
+        
+        <div id="footer" style="display:block;background:none;margin-top:40px;border-top:1px solid #e7e7e7;width:745px;">
+            
+<div>
+    <a href="https://www.coderbyte.com/" class="copyright" onclick="return false" style="display:none;"> Coderbyte 2019 </a>
+    <a href="https://www.coderbyte.com/challenges">Challenges</a>
+    <a href="https://www.coderbyte.com/about"> About </a> 
+    <a href="https://www.coderbyte.com/sl"> Sign Up/Login </a>   
+    <a href="https://medium.com/coderbyte"> Blog </a>   
+    <a href="https://www.coderbyte.com/social"> Social </a> 
+    <a href="https://www.coderbyte.com/privacy"> Privacy </a> 
+    <a href="https://www.coderbyte.com/terms">Terms</a>
+    <a href="https://www.coderbyte.com/contact"> Contact </a> 
+    <a href="https://www.coderbyte.com/member">Membership</a>
+</div>
+
+        </div> 
+
+    </div>
+
+        <div id="resultStats">
+        <h2>User Statistics</h2>
+        <ul class="chartList">
+            <li><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;" src="./WIldcard_files/saved_resource.html"></iframe>
+                <h3>Scores</h3>
+                <canvas class="chart1" height="114" width="265" style="display: block; width: 265px; height: 114px; background: rgb(249, 249, 249);"></canvas>
+                <p>You scored higher than <span id="_insert_percen">9.5</span>% of users who solved this challenge.</p>
+            </li>
+            <li style="border-bottom: 0px;"><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;" src="./WIldcard_files/saved_resource(1).html"></iframe>
+                <h3>Time</h3>
+                <canvas class="chart2" height="114" width="265" style="display: block; width: 265px; height: 114px; background: rgb(249, 249, 249);"></canvas>
+                <p>You solved this challenge in <span>4</span> minutes. The majority of users solved it in about <span id="_insert_time">0-9</span> minutes.</p>
+            </li>
+            <li style="display:none;"><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;" src="./WIldcard_files/saved_resource(2).html"></iframe>
+                <h3>Lines of Code</h3>
+                <canvas class="chart3" height="0" style="display: block; width: 0px; height: 0px; background: rgb(249, 249, 249);" width="0"></canvas>
+                <p>You solved this challenge in <span id="_insert_personal_lines">~33</span> lines of code. The majority of users solved it in about <br><span id="_insert_lines">45+</span> lines of Java code.</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+      $(document).ready(function() { 
+
+  Chart.defaults.global.legend.labels.fontSize = 10;
+
+  // setup for chart.js
+  var ctx_1 = $(".chart1");
+  var ctx_2 = $(".chart2");
+  var ctx_3 = $(".chart3");
+
+  var barChart_default = {
+    label: "",
+    backgroundColor: "rgba(255,99,132,0.2)",
+    borderColor: "rgba(255,99,132,1)",
+    borderWidth: 1,
+    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+    hoverBorderColor: "rgba(255,99,132,1)",
+    data: []
+  };
+
+  // ajax call to get stats
+  $.get('../backend/Challenges/Stats/api/results.php?ct=Wildcard Characters&lan=Java', function(resp) {
+
+    // parse data
+    var resp = JSON.parse(resp);
+    console.log(resp);
+
+    // ========
+    // CHART 1
+    // ========
+
+    // modify data for chart 1
+    var ctx_1_labels = Object.keys(resp['stat_scores']).reverse();
+    var ctx_1_data = jQuery.extend(true, {}, barChart_default);
+    ctx_1_data['label'] = 'Scores';
+    ctx_1_data.data = [];
+    for (var key in resp['stat_scores']) { ctx_1_data.data.unshift(resp['stat_scores'][key]); } // Object.values() is not fully supported
+
+    // under text for chart 1
+    var _insert_percen = 0;
+    var scoredBetterThan = 0;
+    var personalScore = 15;
+    for (var i = 0; i < ctx_1_labels.length; i++) {
+      if (personalScore > ctx_1_labels[i]) { 
+        scoredBetterThan += ctx_1_data.data[i];
+      }
+    }
+    _insert_percen = (scoredBetterThan / resp.sample_size) * 100;
+    _insert_percen = _insert_percen.toFixed(1);
+    $('#_insert_percen').html(_insert_percen);
+
+    // chart 1 for scores
+    var myBarChart = new Chart(ctx_1, {
+      type: 'bar',
+      data: {
+        labels: ctx_1_labels,
+        datasets: [ctx_1_data]
+      }
+    });
+
+    // ========
+    // CHART 2
+    // ========
+
+    // modify data for chart 2
+    var ctx_2_labels = Object.keys(resp['stat_mins']);
+    var ctx_2_data = jQuery.extend(true, {}, barChart_default);
+    ctx_2_data['label'] = 'Minutes';
+    ctx_2_data.data = [];
+    for (var key in resp['stat_mins']) { ctx_2_data.data.push(resp['stat_mins'][key]); } // Object.values() is not fully supported
+
+    // under text for chart 2
+    var _insert_time = resp['majority_minutes'];
+    $('#_insert_time').html(_insert_time);
+
+    // chart 2 for minutes
+    var myBarChart2 = new Chart(ctx_2, {
+      type: 'bar',
+      data: {
+        labels: ctx_2_labels,
+        datasets: [ctx_2_data]
+      }
+    });
+
+    // ========
+    // CHART 3
+    // ========
+
+    // modify data for chart 3
+    var ctx_3_labels = Object.keys(resp['stat_lines']);
+    var ctx_3_data = jQuery.extend(true, {}, barChart_default);
+    ctx_3_data['label'] = 'Lines of Code';
+    ctx_3_data.data = [];
+    for (var key in resp['stat_lines']) { ctx_3_data.data.push(resp['stat_lines'][key]); } // Object.values() is not fully supported
+
+    // under text for chart 3
+    var _insert_lines = resp['majority_lines'];
+    $('#_insert_lines').html(_insert_lines);
+
+    // chart 3 for lines of code
+    var myBarChart3 = new Chart(ctx_3, {
+      type: 'bar',
+      data: {
+        labels: ctx_3_labels,
+        datasets: [ctx_3_data]
+      }
+    });
+
+    // check if large enough sample size
+    if (resp.sample_size === 0) {
+      var placeholder = 'Sorry, but not enough users solved this challenge to show any relevant data.';
+      $('#resultStats ul li p').html(placeholder);
+    }
+
+    // get rid of loader gif
+    $(ctx_1).css({'background':'#f9f9f9'});
+    $(ctx_2).css({'background':'#f9f9f9'});
+    $(ctx_3).css({'background':'#f9f9f9'});
+
+  });
+
+});    </script>
+    
+        
+</div> 
+
+<script type="text/javascript"> 
+$(document).ready(function() { 
+
+    var userNumbering = 1;
+
+    // ajax call to get top user solutions
+    function get_user_solutions(loadMore) {
+        var loadMore = loadMore ? true : false;
+        $.get('../backend/Results/top_user_solutions.php?lan=Java&ct=Wildcard Characters&load_more=' + loadMore, function(resp) {
+            var challengeTitle = 'Wildcard Characters';
+            var finalString = '';
+            if (resp) {
+                var data = JSON.parse(resp);
+                var topUsers = data.users;
+                // do not show load more button if limit reached
+                if (data.limit_reached) {
+                    $('.topUserSolutionsInsert').html('');
+                    $('.loadMoreButton').css({'display': 'none'});
+                }
+                // loop through top users and build DOM string to insert
+                if (topUsers) {
+                    for (var i = 0; i < topUsers.length; i++) {
+                        if (userNumbering > 30) { break; }
+                        var thisUser = topUsers[i];
+                        var rowString = '<a href="/results/' + thisUser.username + ':' + challengeTitle + ':' + thisUser.language + '">' +
+                                            '<div class="eachUser_topScore"> <span>' + userNumbering + '</span>' + 
+                                                '<img src="' + thisUser.image + '" width="40" height="40" />' +
+                                                '<span class="username_rank">' + thisUser.username + '</span>' +
+                                                '<span class="points_for_user" style="margin-right:40px;"> Challenge Score: <b>' + thisUser.score + '</b> </span>' +
+                                            '</div>' +
+                                        '</a>';
+                        userNumbering += 1;
+                        finalString += rowString;
+                    }
+                    // insert into DOM
+                    $('.tempLoadingText').css({'display': 'none'});
+                    if (userNumbering < 30 && !data.limit_reached) {
+                        //$('.loadMoreButton').css({'display': 'block'});
+                    }
+                    $('.topUserSolutionsInsert').html($('.topUserSolutionsInsert').html() + finalString);
+                }
+            }
+        });
+    }
+
+    // get first batch of users
+    
+    // load more user solutions (up to 50) 
+    $('.loadMoreButton').click(function() {
+        $('.tempLoadingText').css({'display': 'block'});
+        $('.loadMoreButton').css({'display': 'none'});
+        get_user_solutions(true);
+    });
+    
+    // show question
+    $('.show_question').click(function() {
+        $(".question_challenge").fadeIn(); 
+        $(this).hide();     
+    });
+    $('.question_challenge').click(function() {
+        $(this).slideUp();
+        $(".show_question").fadeIn();   
+    });
+    
+    // show inputs
+    $(".show_result_inputs").click(function() {
+        $(this).hide();
+        $('.show_result_inputs_hide').fadeIn();
+        $(".all_result_inputs").slideDown();    
+    });
+    
+    $(".show_result_inputs_hide").click(function() {
+        $(this).hide();
+        $('.show_result_inputs').fadeIn();
+        $(".all_result_inputs").slideUp();    
+    });
+    
+    // delete challenge
+    $(".deleteChal").click(function() {
+        $(".sure_delete").fadeIn();
+        $(this).hide(); 
+    });
+    
+    $('.no_delete_chal').click(function(){
+        $(".sure_delete").hide();
+        $('.deleteChal').fadeIn();     
+    });
+    
+    var showOther = 1;
+    
+    // other user's code
+    $(".otherCodeText").click(function() {
+        if (showOther == 1) {
+            $(".otherCodeTextDiv").slideDown();
+            showOther = 0;
+        }    
+        else if (showOther == 0) {
+            $(".otherCodeTextDiv").slideUp();  
+            showOther = 1;     
+        }
+    });
+    
+    var ans = 1;
+    
+    $(".shorter_padding_results").click(function() {
+        if (ans == 1) { 
+            $(".all_times").slideDown(); 
+            ans = 0; 
+            $("#information_box li.shorter_padding_results").css({"margin-bottom":"8px"});
+        }  
+        else if (ans == 0) { 
+            $(".all_times").slideUp("fast"); 
+            ans = 1; 
+            $("#information_box li.shorter_padding_results").css({"margin-bottom":"-5px"});  
+        }          
+    });
+    
+    var showCode = 1;
+    
+    $(".shorter_padding_results_2").click(function() {
+        if (showCode == 1) { 
+            $(".show_code_area").slideDown(); 
+            showCode = 0; 
+        }  
+        else if (showCode == 0) { 
+            $(".show_code_area").slideUp("fast"); 
+            showCode = 1;  
+        }          
+    });
+
+    // theme on results page
+    editor.setTheme("ace/theme/monokai");
+
+});  
+</script> 
+
+
+<script>  
+
+  function stdin_mod_JavaScript(INPUT, INPUT2, CODE) {
+          CODE = CODE.replace('WildcardCharacters(readline())', '');
+      CODE = CODE + '\n' + 'console.log(WildcardCharacters(readline()));';
+        // fix argument passing 
+    if (INPUT2 != undefined) {  
+      var rep = INPUT + "," + INPUT2;  
+      CODE = CODE.replace(/readline\(\)/g, rep);     
+    }
+    else {
+      CODE = CODE.replace(/readline\(\)/g, INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Python(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("raw_input()",rep);     
+    }
+    else {
+        CODE = CODE.replace("raw_input()",INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Ruby(INPUT, INPUT2, CODE) {
+    // add puts for OLDER ruby programs
+        if (CODE.indexOf('puts ' + 'WildcardCharacters(STDIN.gets)') === -1) {
+       CODE += '\nputs ' + 'WildcardCharacters(STDIN.gets)';
+    }
+        // fix argument passing 
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace(/STDIN.gets/g,rep);     
+    }
+    else {
+        CODE = CODE.replace(/STDIN.gets/g,INPUT);             
+    }
+    return CODE;
+  }
+
+  function stdin_mod_PHP(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("fgets(fopen('php://stdin', 'r'))",rep);     
+    }
+    else {
+        CODE = CODE.replace("fgets(fopen('php://stdin', 'r'))",INPUT);             
+    }  
+    // temp solution for opening/close php tags
+    CODE = CODE.replace('?>', '');
+    return CODE;
+  }
+
+  function stdin_mod_Java(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("s.nextLine()",rep);     
+    }
+    else {
+        CODE = CODE.replace("s.nextLine()",INPUT);             
+    }   
+    // modify OLD java program
+    if (CODE.indexOf('class Function') !== -1) {
+      CODE = CODE.replace('class Function {', 'class Main {\n public static ');
+    }
+    CODE = CODE.replace('Function c = new Function();', '');
+    CODE = CODE.replace('print(c.', 'print(');
+    return CODE;
+  }
+
+  function stdin_mod_Swift(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("readLine(stripNewline: true)",rep);     
+    }
+    else {
+        CODE = CODE.replace("readLine(stripNewline: true)",INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Go(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("readline()",rep);     
+    }
+    else {
+        CODE = CODE.replace("readline()",INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Cpp(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("gets(stdin)",rep);     
+    }
+    else {
+        CODE = CODE.replace("gets(stdin)",INPUT);             
+    }  
+    return CODE;
+  }
+
+  function stdin_mod_C(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("gets(stdin)",rep);     
+    } 
+    else {
+        CODE = CODE.replace("gets(stdin)",INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Csharp(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("Console.ReadLine()",rep);     
+    } 
+    else {
+        CODE = CODE.replace("Console.ReadLine()",INPUT);             
+    } 
+    return CODE;
+  }
+
+  ace.require("ace/ext/language_tools");
+  var editor = ace.edit("code");
+  editor.setOption("showPrintMargin", false);
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/java");
+
+  editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true
+  });
+  
+  // show users answer
+  $(document).ready(function() { 
+      
+    // refresh CM to show code
+    $(".shorter_padding_results_2").click(function() { 
+      editor.resize();
+    });
+
+    // transfer code to results page when user presses submit code
+    $("#submit_challenge_actual_group").click(function() {
+      $('#get_user_code').attr('value', editor.getValue());  
+    });
+
+    var CODE, INPUT, INPUT2;  
+    var OUTPUT = $('#output_answer_group, #output_answer');
+
+    $(".runcode_button_group, .runcode_button").click(function() {
+
+      // switch buttons so user doesn't keep clicking run
+      $('.outputText').hide();
+      $(".runcode_button_group, .runcode_button").hide();
+      $(".runcode_button_false_group, .runcode_button_false").show(); 
+      
+      CODE = editor.getValue();
+      INPUT = $("#parameter_0").val();
+      INPUT2 = $("#parameter_1").val(); 
+
+      // if str input and no quotes
+              
+      CODE = stdin_mod_Java(INPUT, INPUT2, CODE);
+      // waiting function
+      OUTPUT.attr("value","Running your code.."); 
+      
+      function anim() {
+        OUTPUT.animate({ 
+          content: ''
+        }, {
+          complete: function() { addDots(); anim(); }
+        });      
+      }  
+      
+      function addDots() {
+        var dots = OUTPUT.val();
+        OUTPUT.attr("value",dots + ".");
+      }
+      
+      anim();
+
+      // run code
+              var executeFile = 'executeCodeTPS.php';
+            var username = "user11349960";
+      $.post('/backend/EvalCode/' + executeFile, {code: CODE, language: "java", username: username}, function(data) {
+          console.log(data);
+          try {
+            var data = JSON.parse(data);
+          } catch(e) {
+            OUTPUT.attr("value", 'Error executing code.');  
+            $(OUTPUT).addClass('error');
+          }
+          if (data.stderr !== "") { 
+            OUTPUT.attr("value", data.stderr); 
+            $(OUTPUT).addClass('error');
+          }
+          else if (data.error !== "") {
+            OUTPUT.attr("value", data.error); 
+            $(OUTPUT).addClass('error');
+          }
+          else { 
+            OUTPUT.attr("value", data.stdout);  
+            $(OUTPUT).removeClass('error');
+          }
+          OUTPUT.stop();
+          $(".runcode_button_false_group, .runcode_button_false").hide();
+          $(".runcode_button_group, .runcode_button").show(); 
+      });
+
+    });
+      
+  });  
+  
+</script>  
+
+
+
+
+<div id="cursorMessageDiv" style="display: none;">&nbsp;</div><iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./WIldcard_files/saved_resource(3).html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}" style="display: none;"></div><script src="./WIldcard_files/saved_resource" type="text/javascript"></script></body></html>

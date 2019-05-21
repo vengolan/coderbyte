@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+<html>  
+<head> 
+<title> Coderbyte | Programming challenges and courses </title>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta name="description" content="Coderbyte is a web application that helps you practice your programming skills, prepare for coding bootcamps, and prepare for job interviews with our collection of interview questions, videos, and solutions.">
+<meta name="og:description" content="Coderbyte is a web application that helps you practice your programming skills, prepare for coding bootcamps, and prepare for job interviews with our collection of interview questions, videos, and solutions.">
+<meta name="Keywords" content="coderbyte, coder byte, coding, coding, bootcamp, code school, programming challenges, practice coding, algorithm, math, puzzles, test you programming skills, codetbytes" /> 
+
+<link rel="shortcut icon" href="https://s3.amazonaws.com/coderbytestaticimages/favicon.ico" /> 
+<link type="text/css" rel="stylesheet" href="/style.css?t=d7cb8ff5cfd4891c21d2571d31121d271b8c34d9d56668bef383b8bbfee26573" /> 
+<script src="https://s3.amazonaws.com/coderbytejs/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://s3.amazonaws.com/coderbytejs/jquery.cursorMessage.js" charset="utf-8" language="javascript" type="text/javascript"></script> 
+<script src="/static/js/helper.js?t=aeb7ff23949cd9a2d91bfa6141df5aca366430bb06e4bae95531a6e3b0fd4302"></script>
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25530908-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script><script>
+_linkedin_partner_id = "1040524";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script>
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";
+b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=1040524&fmt=gif" />
+</noscript><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<script> 
+$(document).ready(function() {
+
+  var dropped = false;
+
+  // challenges dropdown hover action
+  $(".navChalHover").hover(function() {
+    $('.navDropDown').show();
+    $('.navChalHover').addClass('hovered');
+    $('.courseDropDown').mouseleave();
+    dropped = true;
+  });
+  $('.navDropDown').mouseleave(function() {
+    $('.navDropDown').hide();
+    $('.navChalHover').removeClass('hovered');
+    dropped = false;
+  });
+
+  // course dropdown hover action
+  $(".navCourseHover").hover(function() {
+    $('.navDropDown').mouseleave();
+    dropped = true;
+  });
+  // course dropdown hover action
+  $(".navMockHover").hover(function() {
+    $('.navDropDown').mouseleave();
+    dropped = true;
+  });
+  $('.courseDropDown').mouseleave(function() {
+    dropped = false;
+  });
+  $(".profHover").hover(function() {
+    $('.navDropDown').mouseleave();
+    dropped = true;
+  });
+
+  // hide dropdowns if hovering somewhere else on page
+  $('div').not('#header, #header_left, #header_right, .dropIcon').hover(function() {
+    if (dropped) {
+      $('.courseDropDown').mouseleave();
+      $('.navDropDown').mouseleave();
+      dropped = false;
+    }
+  });
+
+  
+});
+</script>
+ 
+<!-- editor -->
+<script src="https://s3.amazonaws.com/coderbytejs/ace/src-min/ace.js" charset="utf-8"></script>
+<script src="https://s3.amazonaws.com/coderbytejs/ace/src-min/ext-language_tools.js" charset="utf-8"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+
+<!-- editor overrides -->
+<style type="text/css">
+.ace_editor {
+    width: 94%;
+    height: 460px;
+    border: 2px solid #c4c4c4;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+.ace_scroller, 
+.ace_gutter { 
+    padding-top: 0px;
+}
+.show_code_area {
+    margin-top: 17px;
+}
+.placeholderPreview {
+    font-family: "Helvetica";
+    text-align: center;
+    padding-top: 260px;
+}
+.sql_output {
+    background: #f1f1f1;
+    padding: 40px 0;
+    text-align: center;
+    border: 2px solid #dadada;
+    border-radius: 3px;
+    margin-top: 20px;
+    width: 94%;
+    margin-left: 22px;
+}
+.sql_output p.error {
+    color: #de5454;
+}
+.sql_output table {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #dadada;
+    font-family: "Courier New";
+    font-size: 14px;
+    color: #212121;
+}
+.sql_output table tr {
+    background: #fdfdfd;
+}
+.sql_output table tr:nth-child(2n) {
+    background: whitesmoke;
+}
+.sql_output table th, 
+.sql_output table td {
+    padding: 8px 0;
+}
+.sql_output .placeholderPreview {
+    font-family: "Helvetica";
+    text-align: center;
+    color: #5a5a5a;
+    padding-top: 0;
+}
+
+
+</style>  
+</head>
+
+<body> 
+
+
+<style>
+.badge_outer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000000;
+  display: none;
+}
+.badge_popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: white;
+  border-radius: 6%;
+  border: 10px solid #397ed2;
+  z-index: 1000000;
+  overflow: auto;
+  width: 400px;
+  height: 315px;
+  margin-left: -200px;
+  margin-top: -200px;
+  box-shadow: 0px 0px 12px #3a3a3a;
+  cursor: pointer;
+}
+.badge_popup section {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 29px;
+}
+.badge_popup section h2 {
+  font-size: 37px;
+  color: #2f97d8;
+  font-family: "Franklin Gothic Book";
+  border-bottom: 1px dashed #c5c5c5;
+  padding: 0 23px;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+.badge_popup img {
+  width: 80px;
+  height: 80px;
+  background: gray;
+  margin-top: 23px;
+}
+.badge_popup p {
+  font-family: 'Franklin Gothic Book';
+  font-size: 16px;
+  color: #ecaa53;
+  font-style: italic;
+}
+</style>
+
+<script>
+$(document).ready(function() { 
+
+  var badge_images = {
+    '1': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/First%20Challenge.png', 'Complete your first Coderbyte challenge.'],
+    '2': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Five%20Challenges.png', 'Complete five Coderbyte challenges.'],
+    '3': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Ten%20Perfect%20Tens.png', 'Complete ten challenges each with a perfect score.'],
+    '4': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Tier%202.png', 'Earn at least 100 points.'],
+    '5': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Challenge%20Speed.png', 'Solve a medium challenge in less than 7 minutes.'],
+    '6': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Challenge%20Speed%20II.png', 'Solve a medium challenge in less than 4 minutes.'],
+    '7': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Twenty%20Challenges.png', 'Complete 20 Coderbyte challenges.'],
+    '8': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Fifty%20Challenges.png', 'Complete 50 Coderbyte challenges.'],
+    '9': ['https://s3.amazonaws.com/coderbytestaticimages/badge_images/Hard%20Challenge.png', 'Complete a hard Coderbyte challenge.']
+  };
+
+  // what badge to show
+  var hash = window.location.hash.substr(1);
+  var badges;
+  if (hash.indexOf('badge:') !== -1) {
+    badges = hash.split(':')[1];
+    badges = badges.split(',');
+    if (badges.length > 0) {
+      console.log('there are badge popups to show', badges);
+      showPopup();
+    }
+  }
+
+  // clicking popup hides it
+  $('.badge_popup').click(function() {
+    removePopup();
+  });
+
+  function removePopup() {
+    badges.shift();
+    if (badges.length > 0) {
+      showPopup();
+    } else {
+      $('.badge_outer').fadeOut();
+      var urlWithoutHash = document.location.href.replace(location.hash , "" );
+      window.location.replace(urlWithoutHash);
+    }
+  }
+
+  function showPopup() {
+    var val = badges[0];
+    $('.badgeImage').attr('src', badge_images[val][0]);
+    $('.badgeText').text(badge_images[val][1])
+    $('.badge_outer').fadeIn();
+  }
+
+});  
+</script>
+
+<div class="badge_outer">
+  <div class="badge_popup">
+    <section>
+      <h2>You were awarded a new badge!</h2>
+      <p class="badgeText"></p>
+      <img class="badgeImage" src="#">
+    </section>
+  </div>
+</div>
+ 
+
+<div id="container" style="position:relative;">
+
+    <div id="header" style="position:relative;"> 
+
+	<div id="header_left"> <a href="/" class="homebutton"> Coderbyte </a> </div>
+	        
+	<div id="header_right"> 
+	    <ul id="nav">
+			<li><a class="navCourseHover" href="/challenges">Challenges</a></li>
+			<li><a class="navChalHover" href="/courses/?s=courses#all">Learn <span>&#8964;</span></a></li>
+			<li><a class="profHover" href="/profile/">Profile</a></li>
+			<li><a class="navMockHover" href="/member">Membership</a></span></li>
+			<li><a class="profHover orgNavTitle" href="/organizations">Organizations</a></li>
+	    </ul>
+	    <ul class="courseDropDown">
+			<a href="/courses/?s=courses#all"><li><div class="dropIcon"></div>Courses</li></a>
+			<a href="/courses/?s=all#all"><li><div class="dropIcon"></div>Tutorials</li></a>
+		</ul>
+		<ul class="navDropDown">
+			<a href="/courses/?s=courses#all"><li><div class="dropIcon"></div>Courses</li></a>
+			<a href="/challenges?a=true"><li><div class="dropIcon"></div>Algorithms</li></a>
+			<a href="/questions/"><li><div class="dropIcon"></div>Discussion</li></a>
+			<a href="/rankings/"><li><div class="dropIcon"></div>Rankings</li></a>
+		</ul>
+	</div>
+
+	<div class="clear"></div>
+	
+</div>    
+    
+    <style>#resultStats { top: 65px; }</style>
+
+    <style>#resultStats { top: 65px; }</style>
+
+    <div style="margin-left:-122px;width:946px;" class="shiftedLeft">
+
+        <div id="results_title"> 
+        <p> 
+        <span>Wildcard Characters</span> Results
+                    <a class='nextChal' href='/challenges'>
+                View your challenges &#8594;
+            </a>
+                    <a class='deleteChal' href='#' style='display:none;'>Redo</a>
+            <form method="post" enctype="multipart/form-data" class='sure_delete' style='display:none;'>
+            Are you sure: <input type="submit" name="yes_delete_chal" value="Yes" id="yes_delete_chal" />
+            <a class='no_delete_chal' href='#'>No</a> 
+            </form>
+        </p> </div>
+        
+                
+        <p class='show_question'> Show Question </p>
+        
+                <div class='question_challenge'>
+         Have the function <span style="font-family:'Courier New';color:#a21818;">WildcardCharacters(<span style="font-family:'Courier New';color:#1f5cc3;"><b>str</b></span>)</span> read <span style="font-family:'Courier New';color:#1f5cc3;"><b>str</b></span> 
+
+which will contain two strings separated by a space. The first string will consist of the following sets of characters: +, *, and {N} which is optional. The plus (+) character represents a single alphabetic character, the asterisk (*) represents a sequence of the same character of length 3 unless it is followed by {N} which represents how many characters should appear in the sequence where N will be at least 1. Your goal is to determine if the second string exactly matches the pattern of the first string in the input. 
+
+<br><br>
+
+For example: if <span style="font-family:'Courier New';color:#1f5cc3;"><b>str</b></span> is "++*{5} gheeeee" then the second string in this case does match the pattern, so your program should return the string <b>true</b>. If the second string does not match the pattern your program should return the string <b>false</b>.
+
+<br><br>
+
+<i>Hard</i> challenges are worth <i>15 points</i> and you are not timed for them.
+Use the <b>Parameter Testing</b> feature in the box below to test your code with different arguments.        </div>
+           
+        <!-- ACTUAL RESULTS -->
+         <div id='actual_results'>
+                        
+             
+            
+            <div>    
+                                    <div id='nicejob_cases' style="margin-top:9px;"> This user's test case outputs were all correct. </div>  
+                                </div> 
+            
+                                    <div class='show_time_submission' style='margin-top:-8px;'> You completed this challenge in 
+                4 minutes. 
+            </div>
+                        <li> Total points: <span class='totalpoints'>15</span> </li>  
+                  
+         </div>
+        
+           
+        
+        <!-- display code -->
+        <div id='outer_box' style='margin-top:10px;'>
+            <div id='information_box'>
+
+                    <li class='shorter_padding_results_2'> <p> Solution </p> </li>
+                    <div class='show_code_area'>
+              
+                    <form><textarea id="code" name='code'>import java.util.*; 
+import java.io.*;
+import java.util.regex.*;
+
+class Main {  
+  public static boolean WildcardCharacters(String str) { 
+  
+    // code goes here   
+    /* Note: In Java the return type of a function and the 
+       parameter types being passed are defined, so this return 
+       call must match the return type of the function.
+       You are free to modify the return type. */
+       String[] splitted = str.split("\\s+");
+       String pattern = splitted[0];
+       String inputstr = splitted[1];
+
+        String regexpattern = pattern.replaceAll("(\\+)",".");
+		regexpattern =  regexpattern.replaceAll("\\*(\\{\\d+\\})","\\.$1");
+		regexpattern =  regexpattern.replaceAll("\\*",".\\{3\\}");
+		
+        return inputstr.matches(regexpattern);
+    
+  } 
+  
+  
+  
+  
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(WildcardCharacters(s.nextLine())); 
+  }   
+  
+}</textarea></form> 
+        
+                
+        <br>
+
+        
+        
+            <div class="p_testing_background" style='margin-left:35px;'> <span> str = </span> <input type="text" id="parameter_0" value='"Argument goes here"' style='height:17px;'/> </div>  
+            
+            
+                
+        <!-- RUN BUTTON -->
+                <div class="runcode_button" onclick="" style="margin-top:0;"> <p> Run code </p> </div> 
+        <div class="runcode_button_false" onclick="" style='display:none;margin-top:0;'> <p> Please Wait </p> </div> 
+                   
+        <!-- OUTPUT TEXT -->         
+        
+            <input type="text" id="output_answer" name='output' value="Code output will appear here." style='margin-left: 46px;height:32px;width:274px;'> 
+         
+        <br><br> 
+        
+        </div>
+                    
+        </div> 
+        </div> <!-- outer box --> 
+        
+        <!-- someone else's code -->
+        
+        <div id="footer" style='display:block;background:none;margin-top:40px;border-top:1px solid #e7e7e7;width:745px;'>
+            
+<div>
+    <a href="/" class="copyright" onclick="return false" style="display:none;"> Coderbyte 2019 </a>
+    <a href="/challenges">Challenges</a>
+    <a href="/about"> About </a> 
+    <a href="/sl"> Sign Up/Login </a>   
+    <a href="https://medium.com/coderbyte"> Blog </a>   
+    <a href="/social"> Social </a> 
+    <a href="/privacy"> Privacy </a> 
+    <a href="/terms">Terms</a>
+    <a href="/contact"> Contact </a> 
+    <a href="/member">Membership</a>
+</div>
+
+        </div> 
+
+    </div>
+
+        <div id="resultStats">
+        <h2>User Statistics</h2>
+        <ul class="chartList">
+            <li>
+                <h3>Scores</h3>
+                <canvas class="chart1" height="130"></canvas>
+                <p>You scored higher than <span id="_insert_percen">0.0</span>% of users who solved this challenge.</p>
+            </li>
+            <li style="border-bottom: 0px;">
+                <h3>Time</h3>
+                <canvas class="chart2" height="130"></canvas>
+                <p>You solved this challenge in <span>4</span> minutes. The majority of users solved it in about <span id="_insert_time">0</span> minutes.</p>
+            </li>
+            <li style="display:none;">
+                <h3>Lines of Code</h3>
+                <canvas class="chart3" height="130"></canvas>
+                <p>You solved this challenge in <span id="_insert_personal_lines">~33</span> lines of code. The majority of users solved it in about <br><span id="_insert_lines">0</span> lines of Java code.</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+      $(document).ready(function() { 
+
+  Chart.defaults.global.legend.labels.fontSize = 10;
+
+  // setup for chart.js
+  var ctx_1 = $(".chart1");
+  var ctx_2 = $(".chart2");
+  var ctx_3 = $(".chart3");
+
+  var barChart_default = {
+    label: "",
+    backgroundColor: "rgba(255,99,132,0.2)",
+    borderColor: "rgba(255,99,132,1)",
+    borderWidth: 1,
+    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+    hoverBorderColor: "rgba(255,99,132,1)",
+    data: []
+  };
+
+  // ajax call to get stats
+  $.get('../backend/Challenges/Stats/api/results.php?ct=Wildcard Characters&lan=Java', function(resp) {
+
+    // parse data
+    var resp = JSON.parse(resp);
+    console.log(resp);
+
+    // ========
+    // CHART 1
+    // ========
+
+    // modify data for chart 1
+    var ctx_1_labels = Object.keys(resp['stat_scores']).reverse();
+    var ctx_1_data = jQuery.extend(true, {}, barChart_default);
+    ctx_1_data['label'] = 'Scores';
+    ctx_1_data.data = [];
+    for (var key in resp['stat_scores']) { ctx_1_data.data.unshift(resp['stat_scores'][key]); } // Object.values() is not fully supported
+
+    // under text for chart 1
+    var _insert_percen = 0;
+    var scoredBetterThan = 0;
+    var personalScore = 15;
+    for (var i = 0; i < ctx_1_labels.length; i++) {
+      if (personalScore > ctx_1_labels[i]) { 
+        scoredBetterThan += ctx_1_data.data[i];
+      }
+    }
+    _insert_percen = (scoredBetterThan / resp.sample_size) * 100;
+    _insert_percen = _insert_percen.toFixed(1);
+    $('#_insert_percen').html(_insert_percen);
+
+    // chart 1 for scores
+    var myBarChart = new Chart(ctx_1, {
+      type: 'bar',
+      data: {
+        labels: ctx_1_labels,
+        datasets: [ctx_1_data]
+      }
+    });
+
+    // ========
+    // CHART 2
+    // ========
+
+    // modify data for chart 2
+    var ctx_2_labels = Object.keys(resp['stat_mins']);
+    var ctx_2_data = jQuery.extend(true, {}, barChart_default);
+    ctx_2_data['label'] = 'Minutes';
+    ctx_2_data.data = [];
+    for (var key in resp['stat_mins']) { ctx_2_data.data.push(resp['stat_mins'][key]); } // Object.values() is not fully supported
+
+    // under text for chart 2
+    var _insert_time = resp['majority_minutes'];
+    $('#_insert_time').html(_insert_time);
+
+    // chart 2 for minutes
+    var myBarChart2 = new Chart(ctx_2, {
+      type: 'bar',
+      data: {
+        labels: ctx_2_labels,
+        datasets: [ctx_2_data]
+      }
+    });
+
+    // ========
+    // CHART 3
+    // ========
+
+    // modify data for chart 3
+    var ctx_3_labels = Object.keys(resp['stat_lines']);
+    var ctx_3_data = jQuery.extend(true, {}, barChart_default);
+    ctx_3_data['label'] = 'Lines of Code';
+    ctx_3_data.data = [];
+    for (var key in resp['stat_lines']) { ctx_3_data.data.push(resp['stat_lines'][key]); } // Object.values() is not fully supported
+
+    // under text for chart 3
+    var _insert_lines = resp['majority_lines'];
+    $('#_insert_lines').html(_insert_lines);
+
+    // chart 3 for lines of code
+    var myBarChart3 = new Chart(ctx_3, {
+      type: 'bar',
+      data: {
+        labels: ctx_3_labels,
+        datasets: [ctx_3_data]
+      }
+    });
+
+    // check if large enough sample size
+    if (resp.sample_size === 0) {
+      var placeholder = 'Sorry, but not enough users solved this challenge to show any relevant data.';
+      $('#resultStats ul li p').html(placeholder);
+    }
+
+    // get rid of loader gif
+    $(ctx_1).css({'background':'#f9f9f9'});
+    $(ctx_2).css({'background':'#f9f9f9'});
+    $(ctx_3).css({'background':'#f9f9f9'});
+
+  });
+
+});    </script>
+    
+        
+</div> 
+
+<script type="text/javascript"> 
+$(document).ready(function() { 
+
+    var userNumbering = 1;
+
+    // ajax call to get top user solutions
+    function get_user_solutions(loadMore) {
+        var loadMore = loadMore ? true : false;
+        $.get('../backend/Results/top_user_solutions.php?lan=Java&ct=Wildcard Characters&load_more=' + loadMore, function(resp) {
+            var challengeTitle = 'Wildcard Characters';
+            var finalString = '';
+            if (resp) {
+                var data = JSON.parse(resp);
+                var topUsers = data.users;
+                // do not show load more button if limit reached
+                if (data.limit_reached) {
+                    $('.topUserSolutionsInsert').html('');
+                    $('.loadMoreButton').css({'display': 'none'});
+                }
+                // loop through top users and build DOM string to insert
+                if (topUsers) {
+                    for (var i = 0; i < topUsers.length; i++) {
+                        if (userNumbering > 30) { break; }
+                        var thisUser = topUsers[i];
+                        var rowString = '<a href="/results/' + thisUser.username + ':' + challengeTitle + ':' + thisUser.language + '">' +
+                                            '<div class="eachUser_topScore"> <span>' + userNumbering + '</span>' + 
+                                                '<img src="' + thisUser.image + '" width="40" height="40" />' +
+                                                '<span class="username_rank">' + thisUser.username + '</span>' +
+                                                '<span class="points_for_user" style="margin-right:40px;"> Challenge Score: <b>' + thisUser.score + '</b> </span>' +
+                                            '</div>' +
+                                        '</a>';
+                        userNumbering += 1;
+                        finalString += rowString;
+                    }
+                    // insert into DOM
+                    $('.tempLoadingText').css({'display': 'none'});
+                    if (userNumbering < 30 && !data.limit_reached) {
+                        //$('.loadMoreButton').css({'display': 'block'});
+                    }
+                    $('.topUserSolutionsInsert').html($('.topUserSolutionsInsert').html() + finalString);
+                }
+            }
+        });
+    }
+
+    // get first batch of users
+    
+    // load more user solutions (up to 50) 
+    $('.loadMoreButton').click(function() {
+        $('.tempLoadingText').css({'display': 'block'});
+        $('.loadMoreButton').css({'display': 'none'});
+        get_user_solutions(true);
+    });
+    
+    // show question
+    $('.show_question').click(function() {
+        $(".question_challenge").fadeIn(); 
+        $(this).hide();     
+    });
+    $('.question_challenge').click(function() {
+        $(this).slideUp();
+        $(".show_question").fadeIn();   
+    });
+    
+    // show inputs
+    $(".show_result_inputs").click(function() {
+        $(this).hide();
+        $('.show_result_inputs_hide').fadeIn();
+        $(".all_result_inputs").slideDown();    
+    });
+    
+    $(".show_result_inputs_hide").click(function() {
+        $(this).hide();
+        $('.show_result_inputs').fadeIn();
+        $(".all_result_inputs").slideUp();    
+    });
+    
+    // delete challenge
+    $(".deleteChal").click(function() {
+        $(".sure_delete").fadeIn();
+        $(this).hide(); 
+    });
+    
+    $('.no_delete_chal').click(function(){
+        $(".sure_delete").hide();
+        $('.deleteChal').fadeIn();     
+    });
+    
+    var showOther = 1;
+    
+    // other user's code
+    $(".otherCodeText").click(function() {
+        if (showOther == 1) {
+            $(".otherCodeTextDiv").slideDown();
+            showOther = 0;
+        }    
+        else if (showOther == 0) {
+            $(".otherCodeTextDiv").slideUp();  
+            showOther = 1;     
+        }
+    });
+    
+    var ans = 1;
+    
+    $(".shorter_padding_results").click(function() {
+        if (ans == 1) { 
+            $(".all_times").slideDown(); 
+            ans = 0; 
+            $("#information_box li.shorter_padding_results").css({"margin-bottom":"8px"});
+        }  
+        else if (ans == 0) { 
+            $(".all_times").slideUp("fast"); 
+            ans = 1; 
+            $("#information_box li.shorter_padding_results").css({"margin-bottom":"-5px"});  
+        }          
+    });
+    
+    var showCode = 1;
+    
+    $(".shorter_padding_results_2").click(function() {
+        if (showCode == 1) { 
+            $(".show_code_area").slideDown(); 
+            showCode = 0; 
+        }  
+        else if (showCode == 0) { 
+            $(".show_code_area").slideUp("fast"); 
+            showCode = 1;  
+        }          
+    });
+
+    // theme on results page
+    editor.setTheme("ace/theme/monokai");
+
+});  
+</script> 
+
+
+<script>  
+
+  function stdin_mod_JavaScript(INPUT, INPUT2, CODE) {
+          CODE = CODE.replace('WildcardCharacters(readline())', '');
+      CODE = CODE + '\n' + 'console.log(WildcardCharacters(readline()));';
+        // fix argument passing 
+    if (INPUT2 != undefined) {  
+      var rep = INPUT + "," + INPUT2;  
+      CODE = CODE.replace(/readline\(\)/g, rep);     
+    }
+    else {
+      CODE = CODE.replace(/readline\(\)/g, INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Python(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("raw_input()",rep);     
+    }
+    else {
+        CODE = CODE.replace("raw_input()",INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Ruby(INPUT, INPUT2, CODE) {
+    // add puts for OLDER ruby programs
+        if (CODE.indexOf('puts ' + 'WildcardCharacters(STDIN.gets)') === -1) {
+       CODE += '\nputs ' + 'WildcardCharacters(STDIN.gets)';
+    }
+        // fix argument passing 
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace(/STDIN.gets/g,rep);     
+    }
+    else {
+        CODE = CODE.replace(/STDIN.gets/g,INPUT);             
+    }
+    return CODE;
+  }
+
+  function stdin_mod_PHP(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("fgets(fopen('php://stdin', 'r'))",rep);     
+    }
+    else {
+        CODE = CODE.replace("fgets(fopen('php://stdin', 'r'))",INPUT);             
+    }  
+    // temp solution for opening/close php tags
+    CODE = CODE.replace('?>', '');
+    return CODE;
+  }
+
+  function stdin_mod_Java(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("s.nextLine()",rep);     
+    }
+    else {
+        CODE = CODE.replace("s.nextLine()",INPUT);             
+    }   
+    // modify OLD java program
+    if (CODE.indexOf('class Function') !== -1) {
+      CODE = CODE.replace('class Function {', 'class Main {\n public static ');
+    }
+    CODE = CODE.replace('Function c = new Function();', '');
+    CODE = CODE.replace('print(c.', 'print(');
+    return CODE;
+  }
+
+  function stdin_mod_Swift(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("readLine(stripNewline: true)",rep);     
+    }
+    else {
+        CODE = CODE.replace("readLine(stripNewline: true)",INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Go(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("readline()",rep);     
+    }
+    else {
+        CODE = CODE.replace("readline()",INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Cpp(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("gets(stdin)",rep);     
+    }
+    else {
+        CODE = CODE.replace("gets(stdin)",INPUT);             
+    }  
+    return CODE;
+  }
+
+  function stdin_mod_C(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("gets(stdin)",rep);     
+    } 
+    else {
+        CODE = CODE.replace("gets(stdin)",INPUT);             
+    } 
+    return CODE;
+  }
+
+  function stdin_mod_Csharp(INPUT, INPUT2, CODE) {
+    if (INPUT2 != undefined) {  
+        var rep = INPUT + "," + INPUT2;  
+        CODE = CODE.replace("Console.ReadLine()",rep);     
+    } 
+    else {
+        CODE = CODE.replace("Console.ReadLine()",INPUT);             
+    } 
+    return CODE;
+  }
+
+  ace.require("ace/ext/language_tools");
+  var editor = ace.edit("code");
+  editor.setOption("showPrintMargin", false);
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/java");
+
+  editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true
+  });
+  
+  // show users answer
+  $(document).ready(function() { 
+      
+    // refresh CM to show code
+    $(".shorter_padding_results_2").click(function() { 
+      editor.resize();
+    });
+
+    // transfer code to results page when user presses submit code
+    $("#submit_challenge_actual_group").click(function() {
+      $('#get_user_code').attr('value', editor.getValue());  
+    });
+
+    var CODE, INPUT, INPUT2;  
+    var OUTPUT = $('#output_answer_group, #output_answer');
+
+    $(".runcode_button_group, .runcode_button").click(function() {
+
+      // switch buttons so user doesn't keep clicking run
+      $('.outputText').hide();
+      $(".runcode_button_group, .runcode_button").hide();
+      $(".runcode_button_false_group, .runcode_button_false").show(); 
+      
+      CODE = editor.getValue();
+      INPUT = $("#parameter_0").val();
+      INPUT2 = $("#parameter_1").val(); 
+
+      // if str input and no quotes
+              
+      CODE = stdin_mod_Java(INPUT, INPUT2, CODE);
+      // waiting function
+      OUTPUT.attr("value","Running your code.."); 
+      
+      function anim() {
+        OUTPUT.animate({ 
+          content: ''
+        }, {
+          complete: function() { addDots(); anim(); }
+        });      
+      }  
+      
+      function addDots() {
+        var dots = OUTPUT.val();
+        OUTPUT.attr("value",dots + ".");
+      }
+      
+      anim();
+
+      // run code
+              var executeFile = 'executeCodeTPS.php';
+            var username = "user11349960";
+      $.post('/backend/EvalCode/' + executeFile, {code: CODE, language: "java", username: username}, function(data) {
+          console.log(data);
+          try {
+            var data = JSON.parse(data);
+          } catch(e) {
+            OUTPUT.attr("value", 'Error executing code.');  
+            $(OUTPUT).addClass('error');
+          }
+          if (data.stderr !== "") { 
+            OUTPUT.attr("value", data.stderr); 
+            $(OUTPUT).addClass('error');
+          }
+          else if (data.error !== "") {
+            OUTPUT.attr("value", data.error); 
+            $(OUTPUT).addClass('error');
+          }
+          else { 
+            OUTPUT.attr("value", data.stdout);  
+            $(OUTPUT).removeClass('error');
+          }
+          OUTPUT.stop();
+          $(".runcode_button_false_group, .runcode_button_false").hide();
+          $(".runcode_button_group, .runcode_button").show(); 
+      });
+
+    });
+      
+  });  
+  
+</script>  
+
+</body>
+</html>
+
