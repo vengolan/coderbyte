@@ -19,7 +19,7 @@ public class CommandExecutor {
 			// TODO Auto-generated constructor 
 			Set<String> keys = props.stringPropertyNames();
 		    for (String key : keys) {
-		      System.out.println(key + " : " + props.getProperty(key));
+		      //System.out.println(key + " : " + props.getProperty(key));
 		      Class cls = Class.forName(props.getProperty(key));
 		      Command myCmdObj= (Command) cls.newInstance();
 		      commands.put(key, myCmdObj);

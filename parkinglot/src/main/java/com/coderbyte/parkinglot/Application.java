@@ -1,6 +1,7 @@
 package com.coderbyte.parkinglot;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,10 +29,15 @@ public class Application {
 			if(args.length == 0 ) {
 				reader = new BufferedReader(new InputStreamReader(System.in));
 			}else { 
-				System.out.println("Arguments passed - ");
-				for(int i=0; i < args.length; i++) {
-					System.out.println(args[i]);
+
+				//exit if file does not exist...
+				File f = new File(args[0]);
+				if(!f.exists()) {
+					System.out.println(args[0] + " Not Found! Please give a valid flie. \nExiting...");
+					System.exit(-1);
 				}
+					
+					
 				reader = new BufferedReader(new FileReader(args[0]));
 			}
 			
@@ -48,7 +54,6 @@ public class Application {
 	}//main
 	
 	public static void process(String cmd) {
-			System.out.println(cmd);
 			String[] args = cmd.split("\\s+");
 			commandExecutor.execute(args);
 	}
