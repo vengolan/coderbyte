@@ -94,7 +94,7 @@ All command Objects implement the below three methods of the ```Command``` Inter
 
 #### ```command.properties```
 
-This file is found under /src/resources folder. This has the mapping between the acutal commands typed in by the user and the corresponding *Command* object that implements them. Below are the contents 
+This file is found under ```/src/resources``` folder. This has the mapping between the acutal commands typed in by the user and the corresponding *Command* object that implements them. Below are the contents 
 
 ```
 park=com.coderbyte.parkinglot.commands.ParkCommand
