@@ -35,7 +35,10 @@ read the commands from that file*
 ```
     ./parking_lot.sh ./parkinglot.txt
 ```
-Above script, runs the test script, builds the project into a .jar file and executes commands provided in the parameter file one by one and shows output.
+Above script 
+* runs the test script 
+* builds the project into a .jar under /target folder 
+* and executes commands provided in the parameter file one by one and shows output.
 
 If no parameters are passed, it shows up the console where user could type in the commands
 ```
