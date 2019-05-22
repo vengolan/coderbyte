@@ -60,7 +60,7 @@ public class ParkingLotTests {
 	@Test
 	public void checkParkOnOccupiedSlot() {
 
-		System.out.println("===========================" + getEncolsingMethod() + "===========================================");
+		System.out.println("===" + getEncolsingMethod() + "===");
 		ParkingLot parkinglot = new ParkingLot();
 		int count = parkinglot.init(3);
 
@@ -78,7 +78,7 @@ public class ParkingLotTests {
 	@Test
 	public void checkGetSlotsByColor() {
 
-		System.out.println("===========================" + getEncolsingMethod() + "===========================================");
+		System.out.println("===" + getEncolsingMethod() + "===");
 		ParkingLot parkinglot = new ParkingLot();
 		int count = parkinglot.init(5);	
 		
@@ -98,7 +98,7 @@ public class ParkingLotTests {
 	
 	@Test 
 	public void checkGetRegnoByColor() {
-		System.out.println("===========================" + getEncolsingMethod() + "===========================================");
+		System.out.println("===" + getEncolsingMethod() + "===");
 		ParkingLot parkinglot = new ParkingLot();
 		int count = parkinglot.init(5);	
 		
@@ -118,7 +118,7 @@ public class ParkingLotTests {
 	@Test
 	public void checkSlotByRegNo() {
 		
-		System.out.println("===========================" + getEncolsingMethod() + "===========================================");
+		System.out.println("===" + getEncolsingMethod() + "===");
 		ParkingLot parkinglot = new ParkingLot();
 		int count = parkinglot.init(3);	
 		
@@ -132,7 +132,7 @@ public class ParkingLotTests {
 	
 	@Test
 	public void checkStatus() {
-		System.out.println("===========================" + getEncolsingMethod() + "===========================================");
+		System.out.println("===" + getEncolsingMethod() + "===");
 		ParkingLot parkinglot = new ParkingLot();
 		int count = parkinglot.init(3);	
 		
