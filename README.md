@@ -45,6 +45,27 @@ If no parameters are passed, it shows up the console where user could type in th
     ./parking_lot.sh
 ```
 
+## Some Sample Commands 
+
+Below are the commands from ```./parkinglot.txt```
+
+```
+create_parking_lot 6
+park KA-01-HH-1234 White
+park KA-01-HH-9999 White
+park KA-01-BB-0001 Black
+park KA-01-HH-7777 Red
+park KA-01-HH-2701 Blue
+park KA-01-HH-3141 Black
+leave 4
+status
+park KA-01-P-333 White
+park DL-12-AA-9999 White
+registration_numbers_for_cars_with_colour White
+slot_numbers_for_cars_with_colour White
+slot_number_for_registration_number KA-01-HH-3141
+slot_number_for_registration_number MH-04-AY-1111
+```
 
 
 ## Unit Test Cases 
@@ -85,4 +106,4 @@ status=com.coderbyte.parkinglot.commands.StatusCommand
 create_parking_lot=com.coderbyte.parkinglot.commands.CreateParkingLot
 ```
 
-For more detailed Information Refer to ```/doc/``` folder
+For viewing information about other objects, please refer to ```/doc/``` folder
