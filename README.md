@@ -45,8 +45,44 @@ If no parameters are passed, it shows up the console where user could type in th
     ./parking_lot.sh
 ```
 
+
+
 ## Unit Test Cases 
 
 The unit test cases can be found in 
 ```/src/test/java/com/coderbyte/parkinglot/ParkingLotTestCases.java```
 
+
+
+## Some Core objects explained
+
+#### ```Application.java```
+
+Collects the command from console or the parameter file and passes it on to ```CommandExecutor.java```
+
+#### ```CommandExecutor.java```
+
+Gets the command passed on by ```Application.java``` and calls the appropriate *Command* object after basic validations. 
+
+#### ```Command.java``` 
+
+All command Objects implement the below three methods of the ```Command``` Interface. 
+* ```execute```
+* ```validateParams```
+* ```usage```
+
+#### ```command.properties```
+
+This file is found under /src/resources folder. This has the mapping between the acutal commands typed in by the user and the corresponding *Command* object that implements them. Below are the contents 
+
+```
+park=com.coderbyte.parkinglot.commands.ParkCommand
+leave=com.coderbyte.parkinglot.commands.LeaveCommand
+slot_numbers_for_cars_with_colour=com.coderbyte.parkinglot.commands.GetSlotsByColor
+registration_numbers_for_cars_with_colour=com.coderbyte.parkinglot.commands.GetRegnosByColor
+slot_number_for_registration_number=com.coderbyte.parkinglot.commands.GetSlotByRegno
+status=com.coderbyte.parkinglot.commands.StatusCommand
+create_parking_lot=com.coderbyte.parkinglot.commands.CreateParkingLot
+```
+
+For more detailed Information Refer to ```/doc/``` folder
