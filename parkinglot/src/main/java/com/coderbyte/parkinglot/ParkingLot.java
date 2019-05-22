@@ -23,7 +23,7 @@ public class ParkingLot {
 		return true;
 	}
 	
-	public void init(int noOfSlots) {
+	public int init(int noOfSlots) {
 		emptySlots = new ArrayList<Integer>();
 		occupiedSlots = new ArrayList<Integer>();;
 		slots = new HashMap<Integer,Slot>();
@@ -35,14 +35,15 @@ public class ParkingLot {
 			slots.put(new Integer(i+1),new Slot(i+1));
 		}
 		System.out.println("Created a parking lot with" + noOfSlots + " slots");
+		return slots.size();
 	
 	}
 	
-	public void Park(Vehicle v) {
+	public int Park(Vehicle v) {
 		
 		if (emptySlots.size() == 0 ) {
 			System.out.println("Sorry, parking lot is full");
-			return;
+			return -1;
 		}
 		
 		int slotno = emptySlots.get(0);
@@ -54,13 +55,14 @@ public class ParkingLot {
 		slot.setVehicle(v);
 		
 		System.out.println("Alloted slot number: " + slotno );
+		return slotno;
 	}
 	
-	public void Leave(int slotno) {
+	public int Leave(int slotno) {
 	
 		if(!occupiedSlots.contains(new Integer(slotno))) {
 			System.out.println("Sorry, no vehicle parked in slot " + slotno);
-			return;
+			return -1;
 		}
 		
 		Slot slot = slots.get(slotno);
@@ -70,9 +72,12 @@ public class ParkingLot {
 		occupiedSlots.remove(new Integer(slotno));
 		
 		Collections.sort(emptySlots);
+		
+		System.out.println("Slot number " + slotno + " is free");
+		return slotno;
 	}
 	
-	public void getSlotsByColor(String color) {
+	public String[] getSlotsByColor(String color) {
 		
 		ArrayList<String> result = new ArrayList<String>();
 		for(Integer key: occupiedSlots){
@@ -87,9 +92,10 @@ public class ParkingLot {
 		if(resultarr.length > 0 )
 			System.out.println(String.join(", ", resultarr));
 		
+		return resultarr;
 	}
 	
-	public void getRegnosByColor(String color) {
+	public String[] getRegnosByColor(String color) {
 
 		ArrayList<String> result = new ArrayList<String>();
 		for(Integer key: occupiedSlots){
@@ -103,10 +109,12 @@ public class ParkingLot {
 		
 		if(resultarr.length > 0 )
 			System.out.println(String.join(", ", resultarr));
+		
+		return resultarr;
 	}
 	
 
-	public void getSlotByRegno(String regno) {
+	public String getSlotByRegno(String regno) {
 		String slotno="";
 		for(Integer key:occupiedSlots){
 			Slot s = (Slot)slots.get(key);
@@ -119,9 +127,11 @@ public class ParkingLot {
 			System.out.println("Allocated slot number:" + slotno);
 		else
 			System.out.println("Not Found");
+		
+		return slotno;
 	}	
 	
-	public void getStatus() {
+	public String[] getStatus() {
 		
 		ArrayList<String> result = new ArrayList<String>();
 		result.add("Slot No\tRegistration No\tColour");
@@ -131,6 +141,8 @@ public class ParkingLot {
 			result.add(key.toString()+"\t" + v.getRegistration() + "\t" + v.getColour() );
 		}
 		for(String output: result)
-			System.out.println(output);		
+			System.out.println(output);
+		
+		return result.toArray(new String[] {});
 	}
 }
