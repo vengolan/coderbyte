@@ -1,5 +1,12 @@
 package com.coderbyte.parkinglot;
 
+
+/**
+ * Abstraction of Parking Slot. 
+ * This stores instance of vehicle that was parked using the "park" command. 
+ * @author venkater
+ *
+ */
 public class Slot {
 
 	private int slotNumber;

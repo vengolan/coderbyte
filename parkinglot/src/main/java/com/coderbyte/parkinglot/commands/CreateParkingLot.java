@@ -3,6 +3,12 @@ package com.coderbyte.parkinglot.commands;
 import com.coderbyte.parkinglot.ParkingLot;
 import com.coderbyte.parkinglot.exceptions.InvalidParameterException;
 
+/**
+ * Implements create_parking_lot command. Refer TO CommandExecutor class & Command Interface for more information on the methods. 
+ * @author venkater
+ *
+ */
+
 public class CreateParkingLot implements Command {
 
 	public void execute(String[] params, ParkingLot parkinglot) {

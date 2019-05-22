@@ -7,7 +7,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
-
+/**
+ * This is the main application Class. Collects Command from console or the parameter file and passes them one by one to the CommandExecutor Object to validate and execute. 
+ * Instantiates the CommandExecutor Object that maps the command string to the appropriate Command Object Instance.
+ * The command to Class mapping is obtained from command.properties file.  
+ * @author venkater
+ *
+ */
 public class Application {
 
 	static BufferedReader reader; 

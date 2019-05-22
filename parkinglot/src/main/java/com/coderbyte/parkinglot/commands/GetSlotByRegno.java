@@ -3,6 +3,13 @@ package com.coderbyte.parkinglot.commands;
 import com.coderbyte.parkinglot.ParkingLot;
 import com.coderbyte.parkinglot.exceptions.InvalidParameterException;
 
+
+/**
+ * Implements "slot_number_for_registration_number" command. Refer TO CommandExecutor class & Command Interface for more information on the methods. 
+ * @author venkater
+ *
+ */
+
 public class GetSlotByRegno implements Command {
 
 

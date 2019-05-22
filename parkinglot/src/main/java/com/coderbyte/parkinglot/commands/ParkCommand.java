@@ -4,6 +4,12 @@ import com.coderbyte.parkinglot.ParkingLot;
 import com.coderbyte.parkinglot.Vehicle;
 import com.coderbyte.parkinglot.exceptions.InvalidParameterException;
 
+
+/**
+ * Implements "park" command. Refer to CommandExecutor class & Command Interface for more information on the methods. 
+ * @author venkater
+ *
+ */
 public class ParkCommand implements Command{
 
 	public void execute(String[] params, ParkingLot parkinglot) {

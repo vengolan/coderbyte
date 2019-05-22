@@ -1,5 +1,10 @@
 package com.coderbyte.parkinglot;
 
+/**
+ * Abstraction of Vehicle object. 
+ * @author venkater
+ *
+ */
 public class Vehicle {
 
 	private String registration;

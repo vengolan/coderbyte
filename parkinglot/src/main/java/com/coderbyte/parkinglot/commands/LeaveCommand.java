@@ -3,6 +3,12 @@ package com.coderbyte.parkinglot.commands;
 import com.coderbyte.parkinglot.ParkingLot;
 import com.coderbyte.parkinglot.exceptions.InvalidParameterException;
 
+
+/**
+ * Implements "leave" command. Refer to CommandExecutor class & Command Interface for more information on the methods. 
+ * @author venkater
+ *
+ */
 public class LeaveCommand implements Command{
 
 	public void execute(String[] params, ParkingLot parkinglot) {

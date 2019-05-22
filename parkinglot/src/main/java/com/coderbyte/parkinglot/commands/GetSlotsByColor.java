@@ -3,6 +3,13 @@ package com.coderbyte.parkinglot.commands;
 import com.coderbyte.parkinglot.ParkingLot;
 import com.coderbyte.parkinglot.exceptions.InvalidParameterException;
 
+
+
+/**
+ * Implements "slot_numbers_for_cars_with_colour" command. Refer TO CommandExecutor class & Command Interface for more information on the methods. 
+ * @author venkater
+ *
+ */
 public class GetSlotsByColor implements Command{
 
 

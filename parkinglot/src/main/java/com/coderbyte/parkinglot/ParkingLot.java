@@ -5,8 +5,18 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 
+ * This is the main class that implements all the functionality. Command objects call the appropriate methods of this class to get the job done. 
+ * @author venkater
+ *
+ */
 public class ParkingLot {
-	
+	/**
+	 * emptySlots - stores the empty slot numbers at any point of time. 
+	 * occupiedSlots - stores the slot numbers that are occupied at any point of time.
+	 * slots - HashMap that maps slot number to the actual Slot object which stores the parked Vehicle information.  
+	 */
 	private ArrayList<Integer> emptySlots;
 	private ArrayList<Integer> occupiedSlots;
 	private HashMap<Integer,Slot> slots;
@@ -15,6 +25,10 @@ public class ParkingLot {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * 
+	 * @return true if the ParkingLot has been initialized by calling the "create_parking_lot" command. 
+	 */
 	public boolean isReady() {
 		if(slots == null) {
 			System.out.println("Please Initialize parking lot by running the \"create_parking_lot <slots>\" command");
@@ -23,6 +37,15 @@ public class ParkingLot {
 		return true;
 	}
 	
+	/**
+	 * Creates the parking lot object. This is called when "create_parking_lot" command is issued.
+	 * Instantiates 
+	 * 				- the "slots" HashMap with empty Slot objects for each slot.
+	 * 				- emptySlots ArrayList with all the slot Numbers
+	 * 				- occupiedSlots with an Empty ArrayList<Integer>
+	 * @param noOfSlots 
+	 * @return
+	 */
 	public int init(int noOfSlots) {
 		emptySlots = new ArrayList<Integer>();
 		occupiedSlots = new ArrayList<Integer>();;
@@ -39,6 +62,13 @@ public class ParkingLot {
 	
 	}
 	
+	/**
+	 * This implements "park" command. 
+	 * Selects the lowset/nearest available slot from emptySlot array and parks the vehicle. 
+	 * Removes the selected slot from emptySlot array and adds it to occupiedSlot array. 
+	 * @param - Vehicle to be parked
+	 * @return
+	 */
 	public int Park(Vehicle v) {
 		
 		if (emptySlots.size() == 0 ) {
@@ -58,6 +88,13 @@ public class ParkingLot {
 		return slotno;
 	}
 	
+	/** 
+	 * Implements the "leave" command
+	 * This frees the Slot Number. moves the slot from occupiedSlot to emptySlot array. 
+	 * Also, sets the vehicle object to null in the Slot object. 
+	 * @param slotno - slot number to be freed
+	 * @return
+	 */
 	public int Leave(int slotno) {
 	
 		if(!occupiedSlots.contains(new Integer(slotno))) {
@@ -77,6 +114,11 @@ public class ParkingLot {
 		return slotno;
 	}
 	
+	/**
+	 * Implements "slot_numbers_for_cars_with_colour"
+	 * @param color
+	 * @return - array of Registration numbers with the color
+	 */
 	public String[] getSlotsByColor(String color) {
 		
 		ArrayList<String> result = new ArrayList<String>();
@@ -95,6 +137,11 @@ public class ParkingLot {
 		return resultarr;
 	}
 	
+	/**
+	 * Implements "registration_numbers_for_cars_with_colour"
+	 * @param color
+	 * @return - Array of registration numbers for color
+	 */
 	public String[] getRegnosByColor(String color) {
 
 		ArrayList<String> result = new ArrayList<String>();
@@ -113,6 +160,11 @@ public class ParkingLot {
 		return resultarr;
 	}
 	
+	/**
+	 * Implements  "slot_number_for_registration_number" command 
+	 * @param regno
+	 * @return - Slot number for the regno
+	 */
 
 	public String getSlotByRegno(String regno) {
 		String slotno="";
@@ -131,6 +183,10 @@ public class ParkingLot {
 		return slotno;
 	}	
 	
+	/**
+	 * Implements "status" command
+	 * @return - Array of slot information separated by \t
+	 */
 	public String[] getStatus() {
 		
 		ArrayList<String> result = new ArrayList<String>();
