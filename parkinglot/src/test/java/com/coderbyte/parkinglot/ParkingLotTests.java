@@ -96,6 +96,8 @@ public class ParkingLotTests {
 		
 	}
 	
+	
+	
 	@Test 
 	public void checkGetRegnoByColor() {
 		System.out.println("===" + getEncolsingMethod() + "===");
