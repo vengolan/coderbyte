@@ -1,5 +1,4 @@
 ## Problem Statement
-
 *I own a multi-storey parking lot that can hold up to 'n' cars at any given point in
 time. Each slot is given a number starting at 1 increasing with increasing distance
 from the entry point in steps of one. I want to create an automated ticketing
@@ -29,3 +28,22 @@ modes of input - we don't want two distinct submissions.*
 where commands can be typed in*
 - *It should accept a filename as a parameter at the command prompt and
 read the commands from that file*
+
+
+## How to Build and Execute  ##
+
+```
+    ./parking_lot.sh ./parkinglot.txt
+```
+Above script, runs the test script, builds the project into a .jar file and executes commands provided in the parameter file one by one and shows output.
+
+If no parameters are passed, it shows up the console where user could type in the commands
+```
+    ./parking_lot.sh
+```
+
+## Unit Test Cases 
+
+The unit test cases can be found in 
+```/src/test/java/com/coderbyte/parkinglot/ParkingLotTestCases.java```
+
