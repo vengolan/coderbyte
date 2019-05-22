@@ -5,6 +5,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import com.coderbyte.parkinglot.commands.Command;
+import com.coderbyte.parkinglot.exceptions.InvalidParameterException;
 
 public class CommandExecutor {
 	
@@ -34,11 +35,16 @@ public class CommandExecutor {
 	public void execute(String[] args) {
 			try {
 				Command cmd = (Command)commands.get(args[0]);
-				if(cmd != null) 
-					cmd.execute(args,parkinglot);
+				if(cmd != null) {
+					if(cmd.validateParams(args))
+						cmd.execute(args,parkinglot);
+				}
 				else
-					System.out.println("Please enter a valid Command");
+					System.out.println("\"" + args[0] + "\" is not a valid command. Please enter a valid command");
 
+			}catch(InvalidParameterException e) {
+				System.out.println(e.getMessage());
+				System.out.println(e.getCommand().usage());
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

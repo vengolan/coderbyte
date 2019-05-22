@@ -1,6 +1,7 @@
 package com.coderbyte.parkinglot.commands;
 
 import com.coderbyte.parkinglot.ParkingLot;
+import com.coderbyte.parkinglot.exceptions.InvalidParameterException;
 
 public class GetRegnosByColor implements Command {
 
@@ -14,6 +15,20 @@ public class GetRegnosByColor implements Command {
 		String color = params[1];
 		parkinglot.getRegnosByColor(color);
 		
+	}
+
+	public String usage() {
+		// TODO Autnr
+		return "\tusage:registration_numbers_for_cars_with_colour <color>\n\texample:registration_numbers_for_cars_with_colour White";
+		
+	}
+
+	public boolean validateParams(String[] args) throws InvalidParameterException {
+		// TODO Auto-generated method stubur
+		if(args.length >=2)
+			return true;
+		else
+			throw new InvalidParameterException(this,"Insufficient Parameters!" );
 	}
 
 }

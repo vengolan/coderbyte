@@ -1,6 +1,7 @@
 package com.coderbyte.parkinglot.commands;
 
 import com.coderbyte.parkinglot.ParkingLot;
+import com.coderbyte.parkinglot.exceptions.InvalidParameterException;
 
 public class StatusCommand implements Command {
 
@@ -12,6 +13,17 @@ public class StatusCommand implements Command {
 		
 		parkinglot.getStatus();
 
+	}
+
+	public String usage() {
+		// TODO Auto-generated method stub
+		return "\tusage:status\n\texample:status";
+		
+	}
+
+	public boolean validateParams(String[] args) throws InvalidParameterException {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

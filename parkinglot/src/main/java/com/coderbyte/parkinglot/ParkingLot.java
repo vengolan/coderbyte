@@ -34,7 +34,7 @@ public class ParkingLot {
 			emptySlots.add(new Integer(i+1));
 			slots.put(new Integer(i+1),new Slot(i+1));
 		}
-		System.out.println("Created a parking lot with" + noOfSlots + " slots");
+		System.out.println("Created a parking lot with " + noOfSlots + " slots");
 		return slots.size();
 	
 	}
@@ -124,7 +124,7 @@ public class ParkingLot {
 			}
 		}
 		if(!slotno.trim().equalsIgnoreCase(""))
-			System.out.println("Allocated slot number:" + slotno);
+			System.out.println("Allocated slot number: " + slotno);
 		else
 			System.out.println("Not Found");
 		
