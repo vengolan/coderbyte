@@ -84,7 +84,7 @@ public class ParkingLot {
 		Slot slot = slots.get(slotno);
 		slot.setVehicle(v);
 		
-		System.out.println("Alloted slot number: " + slotno );
+		System.out.println("Allocated slot number: " + slotno );
 		return slotno;
 	}
 	
@@ -176,7 +176,7 @@ public class ParkingLot {
 			}
 		}
 		if(!slotno.trim().equalsIgnoreCase(""))
-			System.out.println("Allocated slot number: " + slotno);
+			System.out.println("" + slotno);
 		else
 			System.out.println("Not Found");
 		
