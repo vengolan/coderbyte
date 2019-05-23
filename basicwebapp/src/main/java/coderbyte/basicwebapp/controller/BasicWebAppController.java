@@ -39,8 +39,6 @@ public class BasicWebAppController {
 	@GetMapping(path="getcount")
 	public BasicWebAppBean helloWorldPathVariable()  {
 		
-		System.out.println("Inside Controller...");
-		
 		try {
 			String ipAddress = getClientIp();
 			return dao.getHitNo(ipAddress);

@@ -22,17 +22,36 @@
     /* 
     ADD REACT CODE HERE 
     */
-    	const { Component } = React;
+    const { Component } = React;
 	const { render } = ReactDOM;
+
+	function set_suffix(x)
+	  {
+	    return x + (x % 10 == 1 && x != 11 ? 'st' : (x % 10 == 2 && x != 12 ? 'nd' : (x % 10 == 3 && x != 13 ? 'rd' : 'th'))); 
+	  }
+
 
     class Hello extends Component{
 
+    	constructor(){
+    		super();
+    		this.state={count:""}
+    	  }
+		
+    	componentDidMount(){
+		
+			fetch(window.location.href + "/getcount")
+				.then(response => response.json())
+				.then(data => this.setState({count:set_suffix(data.sno)}));
+		}//componentDidMount
+
+
     	render(){
 			return (
-					<div>Hello Human, You are the nth Visitor to this page!</div>
+					<div>Helo Human, You are the  {this.state.count} Visitor!! </div>
 				 );
-		}
-	}//Hello Class
+		}//render
+	}//Hello Component
 
 
 	function Image(){
