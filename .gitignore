@@ -3,3 +3,6 @@
 *.jar
 *.lst
 */target/
+/.README.md.swp
+/parkinglot.xxx.xz
+/parkinglot.zip

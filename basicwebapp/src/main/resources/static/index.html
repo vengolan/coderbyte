@@ -1,0 +1,62 @@
+<html>
+<head>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+	<style>
+
+
+      div {
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+      }	
+
+	</style>
+</head>
+<body>
+    <div align="center" id="root" style="display:block;text-align: center;">
+	</div>
+    <script type="text/babel">
+    
+    /* 
+    ADD REACT CODE HERE 
+    */
+    	const { Component } = React;
+	const { render } = ReactDOM;
+
+    class Hello extends Component{
+
+    	render(){
+			return (
+					<div>Hello Human, You are the nth Visitor to this page!</div>
+				 );
+		}
+	}//Hello Class
+
+
+	function Image(){
+
+		return(
+			<img src='https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/teaching_f1cm.svg'></img>
+		);
+	}
+
+
+	function App(){
+			return (
+					<div>
+						<Hello />
+						<Image />
+					</div>
+					);
+	}
+
+	ReactDOM.render(
+		<App />, 
+		document.getElementById('root'),
+	);
+
+    </script>
+</body>
+</html>
