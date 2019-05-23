@@ -25,9 +25,14 @@
     const { Component } = React;
 	const { render } = ReactDOM;
 
-	function set_suffix(x)
+	
+	const spanStyle = {
+			backgroundColor: '#FFEB00'
+		};
+
+	function get_suffix(x)
 	  {
-	    return x + (x % 10 == 1 && x != 11 ? 'st' : (x % 10 == 2 && x != 12 ? 'nd' : (x % 10 == 3 && x != 13 ? 'rd' : 'th'))); 
+	    return (x % 10 == 1 && x != 11 ? 'st' : (x % 10 == 2 && x != 12 ? 'nd' : (x % 10 == 3 && x != 13 ? 'rd' : 'th'))); 
 	  }
 
 
@@ -35,20 +40,20 @@
 
     	constructor(){
     		super();
-    		this.state={count:""}
+    		this.state={count:"",suffix:""}
     	  }
 		
     	componentDidMount(){
 		
 			fetch(window.location.href + "/getcount")
 				.then(response => response.json())
-				.then(data => this.setState({count:set_suffix(data.sno)}));
-		}//componentDidMount
+				.then(data => this.setState({count:data.sno, suffix:get_suffix(data.sno)}));
+			}//componentDidMount
 
 
     	render(){
 			return (
-					<div>Helo Human, You are the  {this.state.count} Visitor!! </div>
+					<div>Hello Human 👋, You are the <span style={spanStyle}> {this.state.count}<sup>{this.state.suffix}</sup></span> Visitor!! </div>
 				 );
 		}//render
 	}//Hello Component
