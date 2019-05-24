@@ -30,33 +30,49 @@
 			backgroundColor: '#FFEB00'
 		};
 
+	const errStyle = {
+			color: 'red'
+		};
+
+
 	function get_suffix(x)
 	  {
 	    return (x % 10 == 1 && x != 11 ? 'st' : (x % 10 == 2 && x != 12 ? 'nd' : (x % 10 == 3 && x != 13 ? 'rd' : 'th'))); 
 	  }
 
+	function handleErrors(response) {
+    	if (!response.ok) {
+        	throw Error("ERROR! "+response.status + ""+response.statusText);
+	    }
+    	return response.json();
+	}
 
     class Hello extends Component{
 
     	constructor(){
     		super();
-    		this.state={count:"",suffix:""}
+    		this.state={count:"",suffix:"",status:"ok",error:""}
     	  }
 		
     	componentDidMount(){
 		
 			fetch(window.location.href + "/getrank")
-				.then(response => response.json())
-				.then(data => this.setState({count:data.sno, suffix:get_suffix(data.sno)}));
+				.then(response => handleErrors(response))
+				.then(data => this.setState({count:data.sno, suffix:get_suffix(data.sno), status:"ok", error:""}))
+				.catch(error => this.setState({count:"", suffix:"", status:"error", error:error.message}));
 			}//componentDidMount
 
-
     	render(){
-			return (
-					<div>Hello Human 👋, You are the <span style={spanStyle}> {this.state.count}<sup>{this.state.suffix}</sup></span> Visitor!! </div>
-				 );
-		}//render
-	}//Hello Component
+			var {count,suffix,status,error} = this.state;
+				return (
+						<div>
+						Hello Human 👋, You are the <span style={spanStyle}> {this.state.count}<sup>{this.state.suffix}</sup></span> Visitor!! 
+						<p style={errStyle}> {this.state.error} </p>
+						</div>
+					 );
+
+		} //render
+	} //Hello Component
 
 
 	function Image(){
