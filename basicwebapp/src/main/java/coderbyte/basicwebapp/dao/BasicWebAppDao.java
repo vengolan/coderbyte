@@ -30,7 +30,7 @@ public class BasicWebAppDao {
 		
 		//get the rank of client IP address. and return bean
 		List<Integer> sno = new ArrayList<Integer>();
-		String query ="select rank from ( SELECT t.*, @rownum := @rownum + 1 AS rank FROM iphits t,  (SELECT @rownum := 0) r ) m where ip='" + ipAddress  +"'";
+		String query ="select rank from ( SELECT t.*, @rownum := @rownum + 1 AS rank FROM iphits t,  (SELECT @rownum := 0) r order by sno) m where ip='" + ipAddress  +"'";
 		sno = jdbcTemplate.queryForList(query ,Integer.class ); 
 		System.out.println(sno + "-----------------------------" ) ;
 		return new BasicWebAppBean(sno.get(0).intValue(), ipAddress);
