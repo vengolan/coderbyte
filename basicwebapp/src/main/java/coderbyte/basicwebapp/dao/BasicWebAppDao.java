@@ -20,10 +20,10 @@ public class BasicWebAppDao {
 	
 	public BasicWebAppBean getHitNo(String ipAddress) throws Exception {
 		// TODO Auto-generated method stub
-	jdbcTemplate.execute("insert ignore into db_example.iphits(ip) values('" + ipAddress + "');");
+	jdbcTemplate.execute("insert ignore into iphits(ip) values('" + ipAddress + "');");
 		
 		List<Integer> sno = new ArrayList<Integer>();
-		sno = jdbcTemplate.queryForList("select sno from db_example.iphits where ip='" + ipAddress + "';",Integer.class );
+		sno = jdbcTemplate.queryForList("select sno from iphits where ip='" + ipAddress + "';",Integer.class );
 		
 		return new BasicWebAppBean(sno.get(0).intValue(), ipAddress);
 	}
