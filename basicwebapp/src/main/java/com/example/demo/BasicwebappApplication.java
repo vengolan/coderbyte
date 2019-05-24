@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"coderbyte.basicwebapp"})
+@ComponentScan(basePackages = {"coderbyte.basicwebapp.*"})
 public class BasicwebappApplication {
 
 	public static void main(String[] args) {
