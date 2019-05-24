@@ -24,7 +24,7 @@ public class BasicWebAppDao {
 		
 		List<Integer> sno = new ArrayList<Integer>();
 		sno = jdbcTemplate.queryForList("select sno from iphits where ip='" + ipAddress + "';",Integer.class );
-		
+		System.out.println(sno + "-----------------------------" ) ;		
 		return new BasicWebAppBean(sno.get(0).intValue(), ipAddress);
 	}
 	
