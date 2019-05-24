@@ -47,6 +47,7 @@ public class BasicWebAppController {
     }
    
     
+    
     /**
      * Rest API method - this gets the rank of the IP address from the dao object, and returns the bean. 
      * @return - Return bean that contains IP address and the rank. This to be returned as json to client 

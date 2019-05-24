@@ -16,6 +16,8 @@ public class BasicWebAppDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	
+	
 	/**
 	 * Method gets the rank of the client IP address. If not present, insert the ip address and returns the latest number. 
 	 * @param  - ipAddress of the client 
