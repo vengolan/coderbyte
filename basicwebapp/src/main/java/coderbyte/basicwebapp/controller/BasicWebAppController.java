@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import coderbyte.basicwebapp.bean.BasicWebAppBean;
 import coderbyte.basicwebapp.dao.BasicWebAppDao;
+import coderbyte.basicwebapp.model.BasicWebAppBean;
 
 @RestController
 public class BasicWebAppController {
@@ -23,6 +23,13 @@ public class BasicWebAppController {
         this.request = request;
     }
     
+
+    /**
+     * 
+     * Method to get Client IP address.
+     * Get originating IP address, if request forwarded from proxy or load balancer. 
+     * @return - Client IP Address
+     */
     public String getClientIp() {
         String remoteAddr = "";
 
@@ -36,16 +43,19 @@ public class BasicWebAppController {
     }
    
     
-	@GetMapping(path="getcount")
-	public BasicWebAppBean helloWorldPathVariable()  {
+    /**
+     * Rest API method - this gets the rank of the IP address from the dao object, and returns the bean. 
+     * @return - Return bean that contains IP address and the rank. This to be returned as json to client 
+     */
+	@GetMapping(path="getrank")
+	public BasicWebAppBean helloWorldPathVariable()  throws Exception{
 		
-		try {
+			//get client IP address
 			String ipAddress = getClientIp();
+			
+			//get rank for this IP address from dao. 
 			return dao.getHitNo(ipAddress);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+
 	
 	}
 	

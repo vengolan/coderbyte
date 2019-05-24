@@ -1,4 +1,11 @@
-package coderbyte.basicwebapp.bean;
+package coderbyte.basicwebapp.model;
+
+
+/** 
+ * Bean stores ip address, and its rank of the order of visit/hit 
+ * @author venkater
+ *
+ */
 
 public class BasicWebAppBean {
 

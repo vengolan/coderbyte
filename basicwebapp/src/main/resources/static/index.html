@@ -45,7 +45,7 @@
 		
     	componentDidMount(){
 		
-			fetch(window.location.href + "/getcount")
+			fetch(window.location.href + "/getrank")
 				.then(response => response.json())
 				.then(data => this.setState({count:data.sno, suffix:get_suffix(data.sno)}));
 			}//componentDidMount
